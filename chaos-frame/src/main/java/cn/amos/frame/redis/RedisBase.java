@@ -12,7 +12,7 @@ import redis.clients.jedis.JedisPoolConfig;
 public class RedisBase {
 
     private static final Long SUCCESS = 1L;
-    private static final String HOST = "112.74.57.49";
+    private static final String HOST = "112.74.57.62";
     private static final Integer PORT = 6379;
     private static final Integer TIMEOUT = 2000;
     private static final String PASSWORD = "root";
