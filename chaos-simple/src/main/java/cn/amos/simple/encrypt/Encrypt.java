@@ -1,12 +1,12 @@
-package cn.amos.encrypt;
+package cn.amos.simple.encrypt;
 
-import cn.amos.redis.RedisUtil;
+import cn.amos.frame.redis.RedisUtil;
 import com.google.gson.Gson;
 
 /**
- * @project: demo-java
- * @date: 2017/10/16
- * @author: DaoYuanWang
+ * PROJECT: demo-java
+ * @date 2017/10/16
+ * @author DaoYuanWang
  */
 public class Encrypt {
 

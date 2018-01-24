@@ -1,4 +1,4 @@
-package cn.amos.encrypt;
+package cn.amos.simple.encrypt;
 
 import javax.crypto.*;
 import javax.crypto.spec.DESKeySpec;

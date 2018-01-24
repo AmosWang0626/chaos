@@ -1,4 +1,4 @@
-package cn.amos.encrypt;
+package cn.amos.simple.encrypt;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
