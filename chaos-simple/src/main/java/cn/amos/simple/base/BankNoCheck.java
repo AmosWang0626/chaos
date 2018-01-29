@@ -1,4 +1,4 @@
-package cn.amos.base;
+package cn.amos.simple.base;
 
 public class BankNoCheck {
     /*
