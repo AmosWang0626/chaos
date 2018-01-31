@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * PROJECT: demo-java
- * DATE: 2017/11/9
+ * PROJECT: chaos
+ * @date 2017/11/9
  *
  * @author DaoYuanWang
  */

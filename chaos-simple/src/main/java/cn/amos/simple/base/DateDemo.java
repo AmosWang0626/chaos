@@ -9,9 +9,10 @@ import java.util.Date;
 /**
  * @author DaoyuanWang
  */
-public class DateCompare {
+public class DateDemo {
 
     private static Calendar calendar = Calendar.getInstance();
+
     /**
      * 日期格式化
      */
@@ -23,7 +24,23 @@ public class DateCompare {
             ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM"));
 
     public static void main(String[] args) {
-        formatString2Date();
+
+    }
+
+    private void changeTimeByMillis() {
+        long time1 = System.currentTimeMillis();
+        // 直接操作时间戳, 是按照毫秒累加的, 1000也即增加一秒
+        long time2 = System.currentTimeMillis() + 1000;
+        System.out.println(time1);
+        System.out.println(time2);
+
+        Date date1 = new Date(time1);
+        Date date2 = new Date(time2);
+
+        // Wed Jan 31 15:05:10 CST 2018
+        System.out.println(date1);
+        // Wed Jan 31 15:05:11 CST 2018
+        System.out.println(date2);
     }
 
     /**

@@ -6,7 +6,7 @@ package cn.amos.simple.base;
  * @author DaoYuanWang
  * @date 2018/1/29
  */
-public class ShiftOperation {
+public class ShiftOperationDemo {
     public static void main(String[] args) {
         // 4
         System.out.println(8 >> 1);

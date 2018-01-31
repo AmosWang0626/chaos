@@ -1,12 +1,12 @@
 package cn.amos.simple.base;
 
 /**
- * PROJECT: demo-java
- * DATE: 2017/11/24
+ * PROJECT: chaos
  *
  * @author DaoYuanWang
+ * @date 2017/11/24
  */
-public class TestMath {
+public class MathDemo {
 
     public static void main(String[] args) {
         System.out.println(Math.pow(16, 2));

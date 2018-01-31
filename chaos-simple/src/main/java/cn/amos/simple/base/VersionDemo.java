@@ -1,12 +1,12 @@
 package cn.amos.simple.base;
 
 /**
- * PROJECT: demo-java
- * DATE: 2017/10/25
+ * PROJECT: chaos
+ * @date 2017/10/25
  *
  * @author DaoYuanWang
  */
-public class StringVersion {
+public class VersionDemo {
 
     private static final String VERSION = "1.1.1";
 

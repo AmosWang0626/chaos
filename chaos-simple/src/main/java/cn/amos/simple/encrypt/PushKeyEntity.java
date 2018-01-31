@@ -1,9 +1,9 @@
 package cn.amos.simple.encrypt;
 
 /**
- * @project: demo-java
- * @date: 2017/10/16
- * @author: DaoYuanWang
+ * PROJECT: chaos
+ * @date 2017/10/16
+ * @author DaoYuanWang
  */
 public class PushKeyEntity {
 
