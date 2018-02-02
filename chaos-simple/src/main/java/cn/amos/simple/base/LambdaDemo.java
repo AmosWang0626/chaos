@@ -1,23 +1,18 @@
-package cn.amos.simple.test;
+package cn.amos.simple.base;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * PROJECT: chaos
- * @date 2018/1/5
  *
  * @author DaoYuanWang
+ * @apiNote Lambda 表达式
+ * @date 2018/2/1
  */
-public class TestClass {
-    private static void oldClass() {
-        String mockEnv = "";
-        String thisEnv = "TEST";
-        System.out.println(mockEnv.contains(thisEnv));
-    }
+public class LambdaDemo {
 
     public static void main(String[] args) {
-//        oldClass();
         List<String> list = new ArrayList<>();
         list.add("111");
         list.add("222");
