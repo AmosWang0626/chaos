@@ -9,9 +9,14 @@ package cn.amos.simple.base;
  */
 public class StringDemo {
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         String mockEnv = "";
         String thisEnv = "TEST";
         System.out.println(mockEnv.contains(thisEnv));
+        System.out.println("test " + new StringDemo().hello() + " demo!");
+    }
+
+    protected String hello() {
+        return "hello";
     }
 }

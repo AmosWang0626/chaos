@@ -24,7 +24,8 @@ public class DateDemo {
             ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM"));
 
     public static void main(String[] args) {
-
+        System.out.println(new Date());
+        System.out.println(new Date().toInstant());
     }
 
     private void changeTimeByMillis() {
