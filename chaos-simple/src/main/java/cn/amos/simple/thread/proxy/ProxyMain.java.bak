@@ -1,0 +1,19 @@
+package cn.amos.amos.proxy;
+
+import BaseCar;
+import Car;
+import CarInterface;
+import sun.security.krb5.Config;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+
+public class ProxyMain {
+
+    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InstantiationException, IOException, InvocationTargetException, ClassNotFoundException {
+        BaseCar baseCar = new BaseCar();
+        InvocationHandler h = new TimeHandler(baseCar);
+        CarInterface carInterface = (CarInterface) Proxy.newProxyInterface(CarInterface.class, h);
+        carInterface.move();
+    }
+}

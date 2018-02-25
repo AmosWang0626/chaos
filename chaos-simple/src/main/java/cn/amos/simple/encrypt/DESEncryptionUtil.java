@@ -8,11 +8,8 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
 /*
-
  * DES加密，对称加密算法，知道秘钥可以解密密文；
-
  * 密钥至少为8位字符，56位的密钥以及附加的 8位奇偶校验位，每组的第8位作为奇偶校验位；
-
  */
 public class DESEncryptionUtil {
 
