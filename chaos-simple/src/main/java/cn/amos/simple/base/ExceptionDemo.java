@@ -15,12 +15,14 @@ public class ExceptionDemo {
 
     public static void main(String[] args) {
         System.out.println("=========================start 华丽丽的分割线===============================");
+        // 推荐写法
         try {
             throw new Exception("hello");
         } catch (Exception e) {
             LOGGER.error("*****************失败", e);
         }
         System.out.println("=========================华丽丽的分割线===============================");
+        // 这样能显示出错误信息
         try {
             throw new Exception("hello");
         } catch (Exception e) {
