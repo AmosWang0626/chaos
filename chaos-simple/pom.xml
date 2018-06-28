@@ -22,6 +22,10 @@
             <groupId>cn.amos</groupId>
             <artifactId>chaos-frame</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.amos</groupId>
+            <artifactId>chaos-mode</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

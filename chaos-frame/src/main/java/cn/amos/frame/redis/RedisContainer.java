@@ -299,5 +299,8 @@ public class RedisContainer {
         jedis.select(10);
         jedis.del("666");
         jedis.getSet("666", "123456");
+
+        jedis.set("777", "hello");
+        jedis.set("777", "look");
     }
 }

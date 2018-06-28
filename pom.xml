@@ -11,6 +11,7 @@
     <modules>
         <module>chaos-simple</module>
         <module>chaos-frame</module>
+        <module>chaos-mode</module>
     </modules>
 
     <parent>
@@ -36,6 +37,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -93,6 +98,11 @@
             <dependency>
                 <groupId>cn.amos</groupId>
                 <artifactId>chaos-frame</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.amos</groupId>
+                <artifactId>chaos-mode</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
