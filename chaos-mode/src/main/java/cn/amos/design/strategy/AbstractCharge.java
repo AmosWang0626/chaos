@@ -1,5 +1,7 @@
 package cn.amos.design.strategy;
 
+import java.math.BigDecimal;
+
 /**
  * PROJECT: chaos
  * DESCRIPTION: 类说明
@@ -7,10 +9,7 @@ package cn.amos.design.strategy;
  * @author DaoYuanWang
  * @date 2018/6/28
  */
-public class EnglishHello extends AbstractHello {
+abstract class AbstractCharge {
 
-    @Override
-    String sayHello() {
-        return "hello!";
-    }
+    abstract BigDecimal paymentAmount(BigDecimal amount);
 }
