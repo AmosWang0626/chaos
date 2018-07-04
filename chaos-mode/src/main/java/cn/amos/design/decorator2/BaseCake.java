@@ -9,5 +9,16 @@ package cn.amos.design.decorator2;
  */
 public abstract class BaseCake {
 
-    abstract void food();
+    String desc = "一个不能吃的抽象饼";
+
+    /**
+     * 抽象方法
+     *
+     * @return 价格
+     */
+    abstract double price();
+
+    public String getDesc() {
+        return desc;
+    }
 }

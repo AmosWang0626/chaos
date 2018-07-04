@@ -7,10 +7,19 @@ package cn.amos.design.decorator2;
  * @author DaoYuanWang
  * @date 2018/7/4
  */
-public class MaterialHam extends BaseCake {
+public class MaterialHam extends BaseMaterial {
+
+    public MaterialHam(BaseCake baseCake) {
+        super(baseCake);
+    }
 
     @Override
-    void food() {
-        System.out.println("加料: 火腿");
+    double price() {
+        return baseCake.price() + 2;
+    }
+
+    @Override
+    public String getDesc() {
+        return baseCake.getDesc() + " + 火腿";
     }
 }

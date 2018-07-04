@@ -9,17 +9,12 @@ package cn.amos.design.decorator2;
  */
 public class HandCake extends BaseCake {
 
-    private BaseCake baseCake;
-
-    public HandCake(BaseCake baseCake) {
-        this.baseCake = baseCake;
+    public HandCake() {
+        desc = "手抓饼";
     }
 
     @Override
-    void food() {
-        System.out.println("开始制作手抓饼: ");
-        if (baseCake != null) {
-            baseCake.food();
-        }
+    double price() {
+        return 4;
     }
 }
