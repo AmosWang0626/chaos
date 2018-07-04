@@ -9,13 +9,6 @@ package cn.amos.design.decorator;
  */
 public class Decorator extends BaseDecorator {
 
-    private String name;
-
-    public Decorator(String name) {
-        this.name = name;
-        System.out.println(name + " 开始装扮：");
-    }
-
     protected BaseDecorator baseDecorator;
 
     public Decorator(BaseDecorator baseDecorator) {

@@ -7,9 +7,9 @@ package cn.amos.design.decorator;
  * @author DaoyuanWang
  * @date 2018/7/3
  */
-public class Clothes extends Decorator {
+public class ClothesDecorator extends Decorator {
 
-    public Clothes(BaseDecorator baseDecorator) {
+    public ClothesDecorator(BaseDecorator baseDecorator) {
         super(baseDecorator);
     }
 
