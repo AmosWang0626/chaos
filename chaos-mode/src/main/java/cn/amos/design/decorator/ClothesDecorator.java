@@ -7,15 +7,14 @@ package cn.amos.design.decorator;
  * @author DaoyuanWang
  * @date 2018/7/3
  */
-public class ClothesDecorator extends Decorator {
+class ClothesDecorator extends BaseDecorator {
 
-    public ClothesDecorator(BaseDecorator baseDecorator) {
-        super(baseDecorator);
+    ClothesDecorator(BaseWear baseWear) {
+        super(baseWear);
     }
 
     @Override
-    void show() {
-        super.show();
-        System.out.println("穿衣服 ");
+    String wear() {
+        return baseWear.wear() + " 穿衣服";
     }
 }

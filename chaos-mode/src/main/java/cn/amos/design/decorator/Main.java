@@ -10,16 +10,21 @@ package cn.amos.design.decorator;
 public class Main {
 
     public static void main(String[] args) {
-        ClothesDecorator clothesDecorator = new ClothesDecorator(null);
+
+        BaseDecorator baseDecorator = new BaseDecorator(null);
+
+        // 第一种着装
+        ClothesDecorator clothesDecorator = new ClothesDecorator(baseDecorator);
         PantsDecorator pantsDecorator = new PantsDecorator(clothesDecorator);
         ShoesDecorator shoesDecorator = new ShoesDecorator(pantsDecorator);
-        shoesDecorator.show();
+        System.out.println(shoesDecorator.wear());
 
         System.out.println("==========华丽丽的分隔符============");
 
-        PantsDecorator pantsDecorator1 = new PantsDecorator(null);
+        // 第二种着装
+        PantsDecorator pantsDecorator1 = new PantsDecorator(baseDecorator);
         ShoesDecorator shoesDecorator1 = new ShoesDecorator(pantsDecorator1);
         ClothesDecorator clothesDecorator1 = new ClothesDecorator(shoesDecorator1);
-        clothesDecorator1.show();
+        System.out.println(clothesDecorator1.wear());
     }
 }
