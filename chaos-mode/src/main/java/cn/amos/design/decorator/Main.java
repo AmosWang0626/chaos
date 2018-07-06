@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         BaseDecorator baseDecorator = new BaseDecorator(null);
+        baseDecorator.setName("啦啦啦");
 
         // 第一种着装
         ClothesDecorator clothesDecorator = new ClothesDecorator(baseDecorator);

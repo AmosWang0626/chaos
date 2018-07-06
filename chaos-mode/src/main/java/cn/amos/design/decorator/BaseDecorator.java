@@ -9,10 +9,16 @@ package cn.amos.design.decorator;
  */
 class BaseDecorator extends BaseWear {
 
+    private String name;
+
     BaseWear baseWear;
 
     BaseDecorator(BaseWear baseWear) {
         this.baseWear = baseWear;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -25,6 +31,6 @@ class BaseDecorator extends BaseWear {
         if (baseWear != null) {
             return baseWear.wear();
         }
-        return "开始装扮: ";
+        return name + " 开始装扮: ";
     }
 }
