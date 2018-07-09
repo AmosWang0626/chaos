@@ -12,7 +12,4 @@
 - 代理模式 proxy
 - 原型模式 prototype
 
-
-
-### 项目中的测试
-chaos-simple
+## chaos-web WEB请求与单元测试
