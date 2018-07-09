@@ -13,6 +13,8 @@
         <module>chaos-frame</module>
         <module>chaos-mode</module>
         <module>chaos-web</module>
+        <module>chaos-algorithm</module>
+        <module>chaos-common</module>
     </modules>
 
     <parent>
