@@ -7,7 +7,7 @@ package cn.amos.design.prototype.demo1;
  * @author DaoyuanWang
  * @date 2018/7/8
  */
-public class Person {
+public class Person implements Cloneable {
 
     private Long id;
     private String name;
@@ -31,7 +31,7 @@ public class Person {
     }
 
     @Override
-    public Person clone() {
-        return this;
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

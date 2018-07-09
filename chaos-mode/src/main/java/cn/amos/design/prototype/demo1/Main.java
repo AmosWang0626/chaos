@@ -16,13 +16,18 @@ public class Main {
         Person person = new Person();
         person.setUserInfo(1L, "AMOS");
         person.setWorkInfo("2017-07", "1-cash");
-        System.out.println("person: " + person.display());
 
-        Person clone1 = person.clone();
-        clone1.setUserInfo(2L, "DAOYUAN");
-        System.out.println("clone1: " + clone1.display());
+        try {
+            Person clone1 = (Person) person.clone();
+            clone1.setUserInfo(2L, "DAOYUAN");
 
-        // 原对象信息也发生变化
-        System.out.println("person: " + person.display());
+            System.out.println("person: " + person.display());
+            System.out.println("person Object: " + person);
+
+            System.out.println("\nclone1: " + clone1.display());
+            System.out.println("clone1 Object: " + clone1);
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
