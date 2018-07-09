@@ -10,43 +10,19 @@
     <artifactId>chaos-simple</artifactId>
     <packaging>jar</packaging>
 
-    <name>simple</name>
+    <name>chaos-simple</name>
     <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>cn.amos</groupId>
-            <artifactId>chaos-frame</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.amos</groupId>
-            <artifactId>chaos-mode</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <finalName>boot</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>cn.amos.web.BootWebApplication</mainClass>
-                    <layout>ZIP</layout>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
