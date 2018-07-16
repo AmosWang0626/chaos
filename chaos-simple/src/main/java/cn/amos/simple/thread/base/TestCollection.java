@@ -62,9 +62,9 @@ public class TestCollection {
         // 对List进行排序
         Collections.sort(list);
 
-        Iterator iterator_sort = list.iterator();
-        for (; iterator_sort.hasNext(); ) {
-            System.out.print("\t" + iterator_sort.next() + "\t");
+        Iterator iteratorSort = list.iterator();
+        for (; iteratorSort.hasNext(); ) {
+            System.out.print("\t" + iteratorSort.next() + "\t");
         }
 
         System.out.println("\n\t此时List已彻底排序");
@@ -136,9 +136,9 @@ public class TestCollection {
      */
     private long arrayTime() {
         long timeStart = System.currentTimeMillis();
-        List<Integer> list_array = new ArrayList<Integer>();
+        List<Integer> arrayList = new ArrayList<Integer>();
         for (int i = 0; i < 200000; i++) {
-            list_array.add(i,null);
+            arrayList.add(i,null);
         }
         long timeEnd = System.currentTimeMillis();
         long time = timeEnd - timeStart;
@@ -150,9 +150,9 @@ public class TestCollection {
     private long linkedTime() {
 
         long timeStart = System.currentTimeMillis();
-        List<Integer> list_linked = new LinkedList<Integer>();
+        List<Integer> integerLinkedList = new LinkedList<>();
         for (int i = 0; i < 200000; i++) {
-            list_linked.add(i,null);
+            integerLinkedList.add(i,null);
         }
         long timeEnd = System.currentTimeMillis();
         long time = timeEnd - timeStart;
