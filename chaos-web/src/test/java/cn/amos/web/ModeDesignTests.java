@@ -1,7 +1,7 @@
 package cn.amos.web;
 
-import cn.amos.design.factory.Operation;
-import cn.amos.design.factory.OperationFactory;
+import cn.amos.mode.design.factory.Operation;
+import cn.amos.mode.design.factory.OperationFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
