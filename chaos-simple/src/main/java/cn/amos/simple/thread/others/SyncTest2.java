@@ -1,9 +1,16 @@
 package cn.amos.simple.thread.others;
 
-public class SyncTest implements Runnable {
+/**
+ * @author AmosWang
+ */
+public class SyncTest2 implements Runnable {
 
-    // static SyncTest syncTest = new SyncTest();
-    static int count = 0;
+    private static final SyncTest2 SYNC_TEST_2 = new SyncTest2();
+
+    /**
+     * 测试用自增id
+     */
+    private static int count = 0;
 
     private static synchronized void increase() {
         count++;
@@ -13,19 +20,15 @@ public class SyncTest implements Runnable {
     public void run() {
         for (int j = 0; j < 100000; j++) {
             // 第一种方法
-            /*synchronized (syncTest) { // 这句话非常重要
+            synchronized (SYNC_TEST_2) {
                 count++;
-            }*/
-            // 第二种方法
-            increase();
+            }
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        /*Thread thread1 = new Thread(syncTest);
-        Thread thread2 = new Thread(syncTest);*/
-        Thread thread1 = new Thread(new SyncTest());
-        Thread thread2 = new Thread(new SyncTest());
+        Thread thread1 = new Thread(SYNC_TEST_2);
+        Thread thread2 = new Thread(SYNC_TEST_2);
         thread1.start();
         thread2.start();
         thread1.join();

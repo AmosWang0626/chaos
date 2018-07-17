@@ -1,5 +1,8 @@
 package cn.amos.simple.thread.others;
 
+/**
+ * @author AmosWang
+ */
 public class VolatileTest2 {
     private static int count;
     private static volatile boolean ready = true;

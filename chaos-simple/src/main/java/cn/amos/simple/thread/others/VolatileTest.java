@@ -1,5 +1,8 @@
 package cn.amos.simple.thread.others;
 
+/**
+ * @author AmosWang
+ */
 public class VolatileTest implements Runnable {
     private static volatile int count = 0;
 
