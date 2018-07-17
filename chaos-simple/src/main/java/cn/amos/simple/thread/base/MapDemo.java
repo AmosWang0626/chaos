@@ -3,7 +3,10 @@ package cn.amos.simple.thread.base;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestMap {
+/**
+ * @author AmosWang
+ */
+public class MapDemo {
 
     /**
      * Map
@@ -13,6 +16,7 @@ public class TestMap {
      */
     public static void main(String[] args) {
         testHashMap();
+        System.out.println(0x7fffffff);
     }
 
     /**
@@ -28,10 +32,10 @@ public class TestMap {
         map.put(key, 200);
         map.put(key, 270);
 
-        System.out.println("Map 共" + map.size() + "条数据");
-        System.out.println("Key 为 " + key + " 的 Value 是: " + map.get(key));
+        System.out.print("Map Size " + map.size() + ",\t");
+        System.out.println("Key " + key + ", Value " + map.get(key));
 
-        System.out.println("可见HashMap中不允许出现相同Key的不同数据,并且会更新同Key的值");
+        System.out.println("即: HashMap 的 Key 必须唯一, Key 存在的话再次 put 会更新其 Value");
     }
 
 }

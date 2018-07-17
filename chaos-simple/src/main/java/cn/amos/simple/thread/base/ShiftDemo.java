@@ -1,13 +1,17 @@
-package cn.amos.simple.thread;
+package cn.amos.simple.thread.base;
 
 /**
  * PROJECT: chaos
  * DESCRIPTION: 类说明
  *
  * @author DaoYuanWang
- * @date 2018/7/16
+ * @date 2018/7/17
  */
-public class HashMapStudy {
+public class ShiftDemo {
+
+    public static void main(String[] args) {
+        shift();
+    }
 
     /**
      * << n: 2 的 n 次方
