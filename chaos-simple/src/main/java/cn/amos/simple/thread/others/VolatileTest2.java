@@ -1,4 +1,4 @@
-package cn.amos.simple.thread;
+package cn.amos.simple.thread.others;
 
 public class VolatileTest2 {
     private static int count;

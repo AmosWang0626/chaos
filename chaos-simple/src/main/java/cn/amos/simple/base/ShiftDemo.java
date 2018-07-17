@@ -1,4 +1,4 @@
-package cn.amos.simple.thread.base;
+package cn.amos.simple.base;
 
 /**
  * PROJECT: chaos

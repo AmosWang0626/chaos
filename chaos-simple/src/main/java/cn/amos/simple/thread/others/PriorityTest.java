@@ -1,4 +1,4 @@
-package cn.amos.simple.thread;
+package cn.amos.simple.thread.others;
 
 public class PriorityTest {
 
@@ -7,7 +7,7 @@ public class PriorityTest {
 
         @Override
         public void run() {
-            while (true)
+            while (true) {
                 synchronized (PriorityTest.class) {
                     count++;
                     if (count > 10000000) {
@@ -15,6 +15,7 @@ public class PriorityTest {
                         break;
                     }
                 }
+            }
         }
     }
 
@@ -23,7 +24,7 @@ public class PriorityTest {
 
         @Override
         public void run() {
-            while (true)
+            while (true) {
                 synchronized (PriorityTest.class) {
                     count++;
                     if (count > 10000000) {
@@ -31,6 +32,7 @@ public class PriorityTest {
                         break;
                     }
                 }
+            }
         }
     }
 

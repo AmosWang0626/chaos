@@ -1,4 +1,4 @@
-package cn.amos.simple.thread;
+package cn.amos.simple.thread.others;
 
 import java.util.concurrent.locks.ReentrantLock;
 

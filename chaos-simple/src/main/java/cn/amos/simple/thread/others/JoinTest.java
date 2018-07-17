@@ -1,4 +1,4 @@
-package cn.amos.simple.thread;
+package cn.amos.simple.thread.others;
 
 public class JoinTest {
 
