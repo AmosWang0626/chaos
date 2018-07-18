@@ -12,10 +12,6 @@ public class SyncTest2 implements Runnable {
      */
     private static int count = 0;
 
-    private static synchronized void increase() {
-        count++;
-    }
-
     @Override
     public void run() {
         for (int j = 0; j < 100000; j++) {
