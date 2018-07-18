@@ -15,8 +15,10 @@ public class MapDemo {
      * --TreeMap
      */
     public static void main(String[] args) {
-        testHashMap();
-        System.out.println(0x7fffffff);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("good", "Look");
+
+        map.values().forEach(System.out::println);
     }
 
     /**
