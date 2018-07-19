@@ -25,14 +25,22 @@ public class ShiftDemo {
         System.out.println("look hashCode: " + (h >>> 16));
         System.out.println("look hashCode: " + (h ^ (h >>> 16)));
 
+        // 无符号右移
         h = 10;
         System.out.println(h);
         System.out.println(h >>> 1);
         System.out.println(h >>> 2);
 
-        System.out.println(1 << 4);
+        // 左移
+        System.out.println("1 << 4: " + (1 << 4));
+        System.out.println("80 << 4: " + (80 << 4));
+        System.out.println("10 << 1: " + (10 << 1));
         System.out.println(1 << 30);
+
+        // 右移
         System.out.println(1024 >> 10);
+
+        // 异或
         System.out.println(6 ^ 13);
     }
 }
