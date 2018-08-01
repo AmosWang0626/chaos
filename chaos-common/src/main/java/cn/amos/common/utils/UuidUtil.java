@@ -1,4 +1,6 @@
-package cn.amos.common.encrypt;
+package cn.amos.common.utils;
+
+import cn.amos.common.encrypt.RandomUtil;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;

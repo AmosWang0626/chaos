@@ -1,4 +1,4 @@
-package cn.amos.common.base;
+package cn.amos.simple.base;
 
 /**
  * @author Amos

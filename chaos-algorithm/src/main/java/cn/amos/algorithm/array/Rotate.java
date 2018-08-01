@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class Rotate {
 
     public static void main(String[] args) {
-        int k = 3;
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int k = 7;
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
 
-        rotate3(arr, k);
+        rotate2(arr, k);
     }
 
     /**
@@ -53,20 +53,25 @@ public class Rotate {
             return;
         }
 
-        // 元素的值 ---> 默认为第0个元素的值
-        int tempValue = nums[0];
-        // 要移动到的位置 ---> 默认为第0个元素要移动到的位置
-        int pos = k % nums.length;
+        // 同为偶数时异常
+        if ((nums.length + k) % 2 != 0) {
 
-        for (int i = 0; i < nums.length; i++) {
-            nums[pos] = tempValue + nums[pos];
-            tempValue = nums[pos] - tempValue;
-            nums[pos] = nums[pos] - tempValue;
+            // 元素的值 ---> 默认为第0个元素的值
+            int tempValue = nums[0];
+            // 要移动到的位置 ---> 默认为第0个元素要移动到的位置
+            int pos = k % nums.length;
 
-            pos = (pos + k) % nums.length;
+            for (int i = 0; i < nums.length; i++) {
+                nums[pos] = tempValue + nums[pos];
+                tempValue = nums[pos] - tempValue;
+                nums[pos] = nums[pos] - tempValue;
+
+                pos = (pos + k) % nums.length;
+            }
+
+            System.out.println(Arrays.toString(nums));
+
         }
-
-        System.out.println(Arrays.toString(nums));
     }
 
     private static void rotate3(int[] nums, int k) {

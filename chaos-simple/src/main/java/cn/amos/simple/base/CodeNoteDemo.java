@@ -1,4 +1,4 @@
-package cn.amos.common.base;
+package cn.amos.simple.base;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ import java.util.Random;
  * @apiNote 注释相关demo
  * @date 2018/2/8
  */
-public class NoteDemo {
+public class CodeNoteDemo {
 
     public static void main(String[] args) {
         try {

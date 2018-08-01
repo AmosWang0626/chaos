@@ -1,4 +1,4 @@
-package cn.amos.common.base;
+package cn.amos.simple.base;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
