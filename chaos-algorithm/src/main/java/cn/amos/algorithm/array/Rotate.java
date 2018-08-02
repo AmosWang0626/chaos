@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 移动数组
+ * DESCRIPTION: 旋转数组
  *
  * @author DaoYuanWang
  * @date 2018/7/31
@@ -15,6 +15,7 @@ public class Rotate {
         int k = 7;
         int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
 
+        rotate1(arr, k);
         rotate2(arr, k);
     }
 
@@ -43,38 +44,7 @@ public class Rotate {
         System.out.println(Arrays.toString(nums));
     }
 
-    /**
-     * 方式 2
-     * <p>
-     * nums 为奇数时正常, 否则异常
-     */
     private static void rotate2(int[] nums, int k) {
-        if (nums == null || nums.length < 2 || k < 0) {
-            return;
-        }
-
-        // 同为偶数时异常
-        if ((nums.length + k) % 2 != 0) {
-
-            // 元素的值 ---> 默认为第0个元素的值
-            int tempValue = nums[0];
-            // 要移动到的位置 ---> 默认为第0个元素要移动到的位置
-            int pos = k % nums.length;
-
-            for (int i = 0; i < nums.length; i++) {
-                nums[pos] = tempValue + nums[pos];
-                tempValue = nums[pos] - tempValue;
-                nums[pos] = nums[pos] - tempValue;
-
-                pos = (pos + k) % nums.length;
-            }
-
-            System.out.println(Arrays.toString(nums));
-
-        }
-    }
-
-    private static void rotate3(int[] nums, int k) {
         if (nums == null || nums.length < 2 || k < 0) {
             return;
         }
