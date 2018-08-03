@@ -1,17 +1,17 @@
-package cn.amos.mode.design.proxy;
+package cn.amos.mode.design.proxy.simple;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 代理真实送花人
  *
  * @author DaoYuanWang
  * @date 2018/7/6
  */
-public class Proxy implements Subject {
+public class ProxyPerson implements Subject {
 
     private Subject subject;
 
-    public Proxy(Subject subject) {
+    public ProxyPerson(Subject subject) {
         this.subject = subject;
     }
 

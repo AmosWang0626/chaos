@@ -1,8 +1,8 @@
-package cn.amos.mode.design.proxy;
+package cn.amos.mode.design.proxy.simple;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 主题 - 送花
  *
  * @author DaoYuanWang
  * @date 2018/7/6

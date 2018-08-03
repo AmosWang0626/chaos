@@ -9,7 +9,7 @@
 - 工厂模式 factory
 - 工厂方法模式 factory2method
 - 装饰者模式 decorator
-- 代理模式 proxy
+- 代理模式 proxyPerson
 - 原型模式 prototype
 
 ## chaos-web WEB请求与单元测试
