@@ -11,6 +11,13 @@ import java.util.Arrays;
  */
 public class Rotate {
 
+    /**
+     * 一共三种方式
+     *
+     * @see Rotate#rotate1(int[], int) new array
+     * @see Rotate#rotate2(int[], int) arraycopy
+     * @see RotateExchange#rotate(int[], int) exchange
+     */
     public static void main(String[] args) {
         int k = 7;
         int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
@@ -44,6 +51,9 @@ public class Rotate {
         System.out.println(Arrays.toString(nums));
     }
 
+    /**
+     * 方式二
+     */
     private static void rotate2(int[] nums, int k) {
         if (nums == null || nums.length < 2 || k < 0) {
             return;

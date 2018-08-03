@@ -15,12 +15,14 @@ public class RotateExchange {
 
         // 定义50个测试用例
         int testCount = 50;
-        int k = 4;
 
         int[][] ints = testFactory(testCount);
 
-        for (int[] anInt : ints) {
-            rotate(anInt, k);
+        // TODO 仍有bug
+        for (int i = 0; i < 5; i++) {
+            for (int[] anInt : ints) {
+                rotate(anInt, i);
+            }
         }
     }
 
@@ -40,31 +42,38 @@ public class RotateExchange {
     /**
      * 旋转数组工厂
      *
-     * @param arr 要旋转的数组
-     * @param k   要旋转的位数
+     * @param nums 要旋转的数组
+     * @param k    要旋转的位数
      */
-    private static void rotate(int[] arr, int k) {
-        if (arr == null) {
+    private static void rotate(int[] nums, int k) {
+        if (nums == null) {
             return;
         }
 
-        int len = arr.length;
+        int len = nums.length;
+        k = k % len;
 
         if (len < 2 || k < 0 || k % len == 0) {
             return;
         }
 
-        if ((len + k) % 2 != 0) {
-            rotateOdd(arr, len, k);
+        if (len == 2) {
+            nums[0] = nums[0] + nums[1];
+            nums[1] = nums[0] - nums[1];
+            nums[0] = nums[0] - nums[1];
             return;
         }
 
-        if ((len / 2) % 2 == 0) {
-            rotateEven(arr, len, k);
+        if (len % 2 == 0) {
+            if ((len / 2) % 2 != 0 && k % 2 == 0) {
+                rotateEvenHard(nums, len, k);
+            } else {
+                rotateEven(nums, len, k);
+            }
             return;
         }
 
-        rotateEvenHard(arr, len, k);
+        rotateOdd(nums, len, k);
     }
 
     /**
