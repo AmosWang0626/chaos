@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 策略工厂方法
  *
  * @author DaoYuanWang
  * @date 2018/6/28

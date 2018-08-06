@@ -2,7 +2,7 @@ package cn.amos.mode.design.decorator;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类描述
+ * DESCRIPTION: 装饰者模式
  *
  * @author DaoyuanWang
  * @date 2018/7/3

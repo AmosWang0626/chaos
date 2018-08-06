@@ -1,8 +1,8 @@
-package cn.amos.mode.design.factory2method;
+package cn.amos.mode.design.factory_method;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类描述
+ * DESCRIPTION: 工厂方法模式
  *
  * @author DaoyuanWang
  * @date 2018/7/7

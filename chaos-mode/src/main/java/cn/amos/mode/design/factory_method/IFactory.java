@@ -1,4 +1,4 @@
-package cn.amos.mode.design.factory2method;
+package cn.amos.mode.design.factory_method;
 
 /**
  * PROJECT: chaos

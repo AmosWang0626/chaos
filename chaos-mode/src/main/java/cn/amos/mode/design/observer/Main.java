@@ -2,7 +2,7 @@ package cn.amos.mode.design.observer;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 观察者模式
  *
  * @author DaoYuanWang
  * @date 2018/7/16

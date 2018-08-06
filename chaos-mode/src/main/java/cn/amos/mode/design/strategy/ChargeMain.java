@@ -14,6 +14,7 @@ public class ChargeMain {
     public static void main(String[] args) {
         BigDecimal paymentAmount = new BigDecimal(1000);
 
+        // 策略模式
         ChargeContext chargeNormal = new ChargeContext(new ChargeNormal());
         chargeNormal.contextInterface(paymentAmount);
         ChargeContext chargeRebate = new ChargeContext(new ChargeRebate(new BigDecimal(0.8)));
@@ -21,6 +22,7 @@ public class ChargeMain {
         ChargeContext chargeReturn = new ChargeContext(new ChargeReturn(new BigDecimal(300), new BigDecimal(100)));
         chargeReturn.contextInterface(paymentAmount);
 
+        // 策略工厂模式
         ChargeContextFactory normalAmount = new ChargeContextFactory("normal");
         normalAmount.contextInterface(paymentAmount);
         ChargeContextFactory rebateAmount = new ChargeContextFactory("rebate");
