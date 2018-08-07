@@ -1,5 +1,10 @@
 package cn.amos.simple.major.map;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
 /**
  * @author AmosWang
  */
@@ -10,28 +15,28 @@ public class MapSortDemo {
     }
 
     /**
-     * @see java.util.HashMap
+     * @see HashMap
      */
     private static void hashMap() {
 
     }
 
     /**
-     * @see java.util.TreeMap
+     * @see TreeMap
      */
     private static void treeMap() {
 
     }
 
     /**
-     * @see java.util.LinkedHashMap
+     * @see LinkedHashMap
      */
     private static void linkedHashMap() {
 
     }
 
     /**
-     * @see java.util.Hashtable
+     * @see Hashtable
      */
     private static void hashTable() {
 

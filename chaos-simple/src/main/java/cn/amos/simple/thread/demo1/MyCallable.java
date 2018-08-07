@@ -1,8 +1,8 @@
 package cn.amos.simple.thread.demo1;
 
-import lombok.Data;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
-import java.util.concurrent.Callable;
+import java.util.concurrent.*;
 
 /**
  * NOTE: 类说明
@@ -14,39 +14,22 @@ import java.util.concurrent.Callable;
 public class MyCallable {
 
     public static void main(String[] args) {
-        Callable callable = () -> new Person("DY", "HELLO", 18);
+        Callable<String> callable = () -> "Hello Callable!";
+        FutureTask<String> task = new FutureTask<>(callable);
+
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("demo-pool-%d").build();
+        ExecutorService singleThreadPool = new ThreadPoolExecutor(1, 1,
+                0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+
+        singleThreadPool.execute(task);
+        singleThreadPool.shutdown();
+
         try {
-            System.out.println(callable.call());
-            System.out.println(callable.call());
-            System.out.println(callable.call());
-            System.out.println(callable.call());
-            System.out.println(callable.call());
-            System.out.println(callable.call());
-        } catch (Exception e) {
+            System.out.println(task.get());
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
-}
-
-@Data
-class Person {
-
-    private String name;
-    private String message;
-    private int age;
-
-    Person(String name, String message, int age) {
-        this.name = name;
-        this.message = message;
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", message='" + message + '\'' +
-                ", age=" + age +
-                '}';
-    }
-}
+} 
