@@ -44,5 +44,12 @@ public class MathDemo {
         System.out.println("(17 | 2) == " + (17 | 2));
         System.out.println("(18 & 2) == " + (18 & 2));
         System.out.println("(18 | 2) == " + (18 | 2));
+
+        System.out.println("Math.round( 15.5) = " + Math.round(15.5));
+        System.out.println("Math.round(-15.5) = " + Math.round(-15.5));
+        System.out.println("Math.round( 15.6) = " + Math.round(15.6));
+        System.out.println("Math.round(-15.6) = " + Math.round(-15.6));
+        System.out.println("Math.round( 15.4) = " + Math.round(15.4));
+        System.out.println("Math.round(-15.4) = " + Math.round(-15.4));
     }
 }

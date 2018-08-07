@@ -1,4 +1,4 @@
-package cn.amos.simple.base;
+package cn.amos.common.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * @author DaoyuanWang
  */
-public class DateDemo {
+public class DateUtil {
 
     private static Calendar calendar = Calendar.getInstance();
 
@@ -22,11 +22,6 @@ public class DateDemo {
             ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"));
     private static final ThreadLocal<DateFormat> FORMAT_YEAR_2_MONTH =
             ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM"));
-
-    public static void main(String[] args) {
-        System.out.println(new Date());
-        System.out.println(new Date().toInstant());
-    }
 
     private void changeTimeByMillis() {
         long time1 = System.currentTimeMillis();
@@ -111,4 +106,10 @@ public class DateDemo {
         calendar.add(Calendar.DAY_OF_MONTH, i);
         return calendar.getTime();
     }
+
+    public static void main(String[] args) {
+        System.out.println(new Date());
+        System.out.println(new Date().toInstant());
+    }
+
 }
