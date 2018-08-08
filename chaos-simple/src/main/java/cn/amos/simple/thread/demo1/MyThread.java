@@ -11,10 +11,12 @@ public class MyThread extends Thread {
 
     @Override
     public void run() {
-        System.out.println("Hello");
+        System.out.println(Thread.currentThread().getId() + " Hello Thread!");
     }
 
     public static void main(String[] args) {
+        new MyThread().start();
+        new MyThread().start();
         new MyThread().start();
     }
 }

@@ -38,14 +38,7 @@ public class SuggestThread {
                 new LinkedBlockingQueue<>(1024), threadFactory, new ThreadPoolExecutor.AbortPolicy());
 
         for (int i = 0; i < 12; i++) {
-            singleThreadPool.execute(() -> {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName());
-            });
+            singleThreadPool.execute(() -> System.out.println(Thread.currentThread().getName()));
         }
 
         singleThreadPool.shutdown();

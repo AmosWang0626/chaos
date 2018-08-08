@@ -11,12 +11,20 @@ public class MyRunnable implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("hello");
+        System.out.println(Thread.currentThread().getId() + " Hello Runnable!");
     }
 
-    public static void main(String[] args) {
-        Thread thread = new Thread(new MyRunnable());
-        thread.start();
+    public static void main(String[] args) throws Exception {
+        // 一个线程哪够，来仨(sa)...
+        new Thread(new MyRunnable()).start();
+        new Thread(new MyRunnable()).start();
+        new Thread(new MyRunnable()).start();
+    }
+
+    private static void simple() throws Exception {
+        new Thread(() -> System.out.println(Thread.currentThread().getId() + " Hello Runnable!")).start();
+        new Thread(() -> System.out.println(Thread.currentThread().getId() + " Hello Runnable!")).start();
+        new Thread(() -> System.out.println(Thread.currentThread().getId() + " Hello Runnable!")).start();
     }
 
 }
