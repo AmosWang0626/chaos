@@ -1,4 +1,4 @@
-package cn.amos.algorithm;
+package cn.amos.algorithm.interesting;
 
 /**
  * PROJECT: chaos
@@ -29,7 +29,7 @@ public class Daffodil {
             int n3 = begin % 10;
             int val = (int) (Math.pow(n1, 3)) + (int) (Math.pow(n2, 3)) + (int) (Math.pow(n3, 3));
             if (begin == val) {
-                sb.append(val + " ");
+                sb.append(val).append(" ");
             }
 
             begin++;

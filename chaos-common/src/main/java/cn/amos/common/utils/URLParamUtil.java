@@ -28,8 +28,8 @@ public class URLParamUtil {
      * @return 拼接后生成的url
      */
     public static String formatUrlMap(Map<String, String> paramMap, boolean setEncode, boolean key2Lower) {
-        long start = System.currentTimeMillis();
         StringBuilder builder = new StringBuilder();
+        builder.append("?");
         try {
             // 利用TreeMap的有序性 (如果转化成List一般耗时45ms, 本方法仅需5ms)
             if (!(paramMap instanceof TreeMap)) {
@@ -58,7 +58,6 @@ public class URLParamUtil {
             return null;
         }
 
-        System.out.println(System.currentTimeMillis() - start);
         return builder.toString();
     }
 
