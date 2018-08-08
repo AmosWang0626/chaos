@@ -28,10 +28,6 @@
             <groupId>cn.amos</groupId>
             <artifactId>chaos-mode</artifactId>
         </dependency>
-        <dependency>
-            <groupId>cn.amos</groupId>
-            <artifactId>chaos-simple</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
