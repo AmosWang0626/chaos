@@ -1,7 +1,7 @@
 package cn.amos.algorithm.node;
 
 /**
- * NOTE: 类说明
+ * NOTE: 简单链表demo
  * PROJECT: chaos
  *
  * @author AMOS
@@ -31,30 +31,5 @@ public class SimpleNodeDemo {
             System.out.println(node.next);
             node = node.next;
         }
-    }
-}
-
-class Node<D> {
-
-    private final D data;
-
-    Node<D> next;
-
-    Node(D data) {
-        this.data = data;
-    }
-
-    public D getData() {
-        return data;
-    }
-
-    Node<D> add(Node<D> next) {
-        this.next = next;
-        return next;
-    }
-
-    @Override
-    public String toString() {
-        return "Node{" + "data=" + data + '}';
     }
 }
