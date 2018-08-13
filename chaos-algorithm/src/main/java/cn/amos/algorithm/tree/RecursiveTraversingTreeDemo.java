@@ -1,66 +1,59 @@
 package cn.amos.algorithm.tree;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
- * NOTE: 简单二叉树初始化以及遍历
+ * NOTE: 简单二叉树初始化以及递归的方式进行遍历
  * PROJECT: chaos
  *
  * @author AMOS
  * @date 2018/8/9
  */
-public class SimpleTreeDemo {
+public class RecursiveTraversingTreeDemo {
 
     private static final Random RANDOM = new Random();
 
     public static void main(String[] args) {
         // 初始化树
-        Tree<String> tree = generateRandomTree();
-        Tree<String> tempTree = tree;
+        Tree<String> tree = simpleTree();
+        printTreeNodePre(tree);
+    }
 
-        // 树的所有节点
-        List<Tree<String>> treeNodeList = new ArrayList<>();
-        List<Tree<String>> tempArray = new ArrayList<>();
-        tempArray.add(tree);
-
-        while (true) {
-            System.out.println(tempTree);
-            treeNodeList.add(tempTree);
-
-            if (tempTree.left != null) {
-                tempArray.add(tempTree.left);
-                tempTree = tempTree.left;
-                continue;
-            }
-            if (tempTree.right != null) {
-                tempArray.add(tempTree.right);
-                tempTree = tempTree.right;
-                continue;
-            }
-
-            for (int i = tempArray.size() - 2; i >= 0; i--) {
-                tempTree = tempArray.get(i);
-                if (tempTree.right == null) {
-                    continue;
-                }
-                break;
-            }
-
-            if (tempTree.right != null) {
-                tempArray.remove(tempArray.size() - 2);
-                tempArray.remove(tempArray.size() - 1);
-                tempArray.add(tempTree.right);
-                tempTree = tempTree.right;
-                continue;
-            }
-
-            break;
+    /**
+     * 先序遍历,递归遍历
+     */
+    private static void printTreeNodePre(Tree<String> node) {
+        if (node == null) {
+            return;
         }
+        System.out.println(node.toString());
+        printTreeNodePre(node.left);
 
-        System.out.println(treeNodeList.size());
-        System.out.println(treeNodeList.toString());
+        printTreeNodePre(node.right);
+    }
+
+    /**
+     * 中序遍历,递归遍历
+     */
+    private static void printTreeNodeCenter(Tree<String> node) {
+        if (node == null) {
+            return;
+        }
+        printTreeNodeCenter(node.left);
+        System.out.println(node.toString());
+        printTreeNodeCenter(node.right);
+    }
+
+    /**
+     * 后序遍历,递归遍历
+     */
+    private static void printTreeNodeEnd(Tree<String> node) {
+        if (node == null) {
+            return;
+        }
+        printTreeNodeEnd(node.left);
+        printTreeNodeEnd(node.right);
+        System.out.println(node.toString());
     }
 
     private static Tree<String> simpleTree() {
@@ -80,11 +73,12 @@ public class SimpleTreeDemo {
     }
 
     private static Tree<String> generateRandomTree() {
+        int treeHigh = 5;
         // 生成一棵随机树
         Tree<String> tree = new Tree<>("root");
         Tree<String> temp = tree;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < treeHigh; i++) {
             if (RANDOM.nextBoolean()) {
                 Tree<String> newLeft = temp.addLeft(new Tree<>("left " + i));
                 Tree<String> newRight = temp.addRight(new Tree<>("right " + i));
