@@ -9,7 +9,7 @@ import java.util.Random;
  * @author AMOS
  * @date 2018/8/9
  */
-public class RecursiveTraversingTreeDemo {
+public class RecursiveTraversing {
 
     private static final Random RANDOM = new Random();
 
