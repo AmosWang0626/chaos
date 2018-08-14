@@ -1,11 +1,14 @@
-package cn.amos.common.simple.thread.others;
+package cn.amos.common.simple.thread.sync;
 
 /**
+ * volatile 轻量级的synchronized
+ *
  * @author AmosWang
  */
-public class VolatileTest2 {
+public class VolatileTest {
 
     private static int count;
+
     private static volatile boolean ready = true;
 
     public static void main(String[] args) throws InterruptedException {

@@ -10,6 +10,14 @@
 ## 线程生命周期
 > 新建（New）、就绪（Runnable）、运行（Running）、阻塞（Blocked）和死亡（Dead）
 
+线程通过.start()启动，线程会等待资源调度，当获取调度时，执行线程run方法内的内容，
+如果资源被其他线程使用，此时本线程会阻塞，等待资源，直至执行结束，本线程才终止。
+
+
+## Thread 和 Runnable区别
+- Thread是Runnable接口的一个实现类
+- 多线程的启动需要start()方法，而Runnable是没有的，也就是Runnable要依赖Thread启动
+- Runnable能更方便地实现对象或者数据共享
 
 ## 线程池
 
