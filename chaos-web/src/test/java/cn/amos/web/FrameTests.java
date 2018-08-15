@@ -1,6 +1,5 @@
 package cn.amos.web;
 
-import cn.amos.frame.redis.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
