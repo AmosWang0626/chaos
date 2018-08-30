@@ -1,4 +1,4 @@
-package cn.amos.common.utils;
+package cn.amos.common.utils.verify;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.util.Random;
 
 /**
  * PROJECT: hello <br>
- * DESCRIPTION: notes
+ * DESCRIPTION: 放在这个位置是无效的
  *
  * @author wangdaoyuan
  * @date 2018/8/29
