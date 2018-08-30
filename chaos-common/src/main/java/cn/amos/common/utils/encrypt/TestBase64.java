@@ -10,18 +10,19 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * PROJECT: chaos
- * @date 2017/12/29
  *
  * @author DaoYuanWang
+ * @date 2017/12/29
  */
 public class TestBase64 {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestBase64.class);
 
     public static void main(String[] args) {
+        String str = "";
 
-        String gunzip = gunZip("");
-        LOGGER.info(gunzip);
+        String gunZip = gunZip(str);
+        LOGGER.info(gunZip);
     }
 
     /**
