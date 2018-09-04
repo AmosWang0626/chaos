@@ -1,4 +1,4 @@
-package cn.amos.frame.fun_coding;
+package cn.amos.frame.funcoding;
 
 /**
  * NOTE: 类说明
