@@ -1,24 +1,30 @@
 spring:
   # 设置数据库连接
   datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        username: root
-        password: root
-        url: jdbc:mysql://127.0.0.1:3306/boot?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8
-        type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/boot?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
 
   # 页面配置
   thymeleaf:
-      cache: false
+    cache: false
 
   mvc:
     view:
       suffix: .html
       prefix: /templates/
 
+
+  redis:
+    host: 47.96.232.89
+    #    host: 192.168.1.206
+    password: Aa123456
+
 logging:
   level: debug
 
 server:
-    # 设置端口以及访问前缀
-    port: 8080
+  # 设置端口以及访问前缀
+  port: 8080
