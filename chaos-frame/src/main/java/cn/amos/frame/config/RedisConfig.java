@@ -1,5 +1,6 @@
-package cn.amos.frame.redis.stastic;
+package cn.amos.frame.config;
 
+import cn.amos.frame.redis.stastic.SimpleRedisUtil;
 import lombok.Data;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -29,7 +30,7 @@ public class RedisConfig {
                 new GenericObjectPoolConfig(),
                 host, 6379, 2000, password);
 
-        RedisUtil.setJedisPool(jedisPool);
+        SimpleRedisUtil.setJedisPool(jedisPool);
 
         return jedisPool;
     }

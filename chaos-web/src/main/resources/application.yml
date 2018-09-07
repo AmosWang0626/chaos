@@ -16,12 +16,6 @@ spring:
       suffix: .html
       prefix: /templates/
 
-
-  redis:
-    host: 47.96.232.89
-    #    host: 192.168.1.206
-    password: Aa123456
-
 logging:
   level: debug
 

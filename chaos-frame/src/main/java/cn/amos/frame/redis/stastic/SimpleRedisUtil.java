@@ -14,12 +14,12 @@ import java.util.Set;
  * @author wangdaoyuan
  * @date 2018/8/30
  */
-public class RedisUtil {
+public class SimpleRedisUtil {
 
     private static JedisPool jedisPool;
 
     public static void setJedisPool(JedisPool jedisPool) {
-        RedisUtil.jedisPool = jedisPool;
+        SimpleRedisUtil.jedisPool = jedisPool;
     }
 
     private static JedisPool getJedisPool() {
