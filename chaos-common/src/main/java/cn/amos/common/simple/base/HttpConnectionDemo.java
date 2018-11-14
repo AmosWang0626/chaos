@@ -1,6 +1,6 @@
 package cn.amos.common.simple.base;
 
-import cn.amos.common.utils.URLParamUtil;
+import cn.amos.common.utils.other.URLParamUtil;
 import com.alibaba.fastjson.JSON;
 
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package cn.amos.common.utils;
+package cn.amos.common.utils.other;
 
 import java.util.ArrayList;
 import java.util.List;

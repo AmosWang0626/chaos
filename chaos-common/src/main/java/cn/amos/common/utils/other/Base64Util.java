@@ -1,4 +1,4 @@
-package cn.amos.common.utils;
+package cn.amos.common.utils.other;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

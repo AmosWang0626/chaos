@@ -1,4 +1,4 @@
-package cn.amos.common.utils;
+package cn.amos.common.utils.other;
 
 import java.text.DateFormat;
 import java.text.ParseException;
