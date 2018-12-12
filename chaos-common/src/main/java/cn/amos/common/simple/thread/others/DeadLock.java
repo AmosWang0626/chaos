@@ -32,7 +32,7 @@ public class DeadLock {
             e.printStackTrace();
         }
         System.out.println("暂停 " + thread.getName());
-        thread.suspend();
+        // thread.suspend();
         int millis = 2000;
         System.out.println("主线程sleep " + millis + "毫秒");
         try {
@@ -41,7 +41,7 @@ public class DeadLock {
             e.printStackTrace();
         }
         System.out.println("恢复 " + thread.getName());
-        thread.resume();
+        // thread.resume();
         System.out.println("主线程结束");
     }
 }
