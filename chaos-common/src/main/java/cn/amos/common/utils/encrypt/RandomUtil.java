@@ -33,7 +33,7 @@ public class RandomUtil {
         StringBuffer sb = new StringBuffer();  
         Random random = new Random();  
         for (int i = 0; i < length; i++) {  
-            sb.append(ALL_CHAR.charAt(random.nextInt(LETTER_CHAR.length())));  
+            sb.append(LETTER_CHAR.charAt(random.nextInt(LETTER_CHAR.length())));
         }  
         return sb.toString();  
     }
