@@ -109,8 +109,8 @@ public class RandomUtil {
     public static void main(String[] args) {
         System.out.println("返回一个定长的随机字符串(只包含大小写字母、数字):" + generateString(10));  
         System.out.println("返回一个定长的随机纯字母字符串(只包含大小写字母):" + generateMixString(10));
-        System.out.println("返回一个定长的随机纯大写字母字符串(只包含大小写字母):" + generateLowerString(10));
-        System.out.println("返回一个定长的随机纯小写字母字符串(只包含大小写字母):" + generateUpperString(10));
+        System.out.println("返回一个定长的随机纯小写字母字符串(只包含大小写字母):" + generateLowerString(10));
+        System.out.println("返回一个定长的随机纯大写字母字符串(只包含大小写字母):" + generateUpperString(10));
         System.out.println("生成一个定长的纯0字符串:" + generateZeroString(10));  
         System.out.println("根据数字生成一个定长的字符串，长度不够前面补0:" + toFixedLengthString(123, 10));
     }
