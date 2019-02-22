@@ -1,13 +1,13 @@
-package cn.amos.mode.base.complex.demo2;
+package cn.amos.mode.base.abstracts.graph;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 抽象方法
  *
  * @author DaoYuanWang
  * @date 2018/7/6
  */
-public abstract class BaseShape {
+public abstract class BaseGraph {
 
     /**
      * 面积

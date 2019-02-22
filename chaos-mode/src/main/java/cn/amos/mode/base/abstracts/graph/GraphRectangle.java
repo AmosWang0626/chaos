@@ -1,18 +1,18 @@
-package cn.amos.mode.base.complex.demo2;
+package cn.amos.mode.base.abstracts.graph;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 方形
  *
  * @author DaoYuanWang
  * @date 2018/7/6
  */
-public class Rectangle extends BaseShape {
+public class GraphRectangle extends BaseGraph {
 
     private double length;
     private double height;
 
-    public Rectangle(double length, double height) {
+    public GraphRectangle(double length, double height) {
         this.length = length;
         this.height = height;
     }

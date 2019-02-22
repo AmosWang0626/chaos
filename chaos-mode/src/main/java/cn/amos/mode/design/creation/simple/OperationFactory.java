@@ -1,4 +1,4 @@
-package cn.amos.mode.design.factory;
+package cn.amos.mode.design.creation.simple;
 
 /**
  * PROJECT: chaos
@@ -9,8 +9,8 @@ package cn.amos.mode.design.factory;
  */
 public class OperationFactory {
 
-    public static Operation createOperate(String operate) {
-        Operation operation = null;
+    public static AbstractOperation createOperate(String operate) {
+        AbstractOperation operation = null;
 
         switch (operate) {
             case "+":

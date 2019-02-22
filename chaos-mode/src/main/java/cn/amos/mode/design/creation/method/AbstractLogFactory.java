@@ -1,4 +1,4 @@
-package cn.amos.mode.design.factory_method;
+package cn.amos.mode.design.creation.method;
 
 /**
  * PROJECT: chaos
@@ -7,12 +7,13 @@ package cn.amos.mode.design.factory_method;
  * @author DaoyuanWang
  * @date 2018/7/7
  */
-public interface IFactory {
+abstract class AbstractLogFactory {
 
     /**
      * 获取真实产品类
      *
      * @return 产品类
      */
-    IProduct getInstance();
+    abstract AbstractRealLog getInstance();
+
 }

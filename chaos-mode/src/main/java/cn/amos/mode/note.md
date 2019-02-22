@@ -24,7 +24,7 @@
 
 | No. | 区别 | 抽象 | 接口 |
 | :---: | :---: | :--- | :--- | 
-| 1 | 定义 | abstract class Name* {} | interface Name* {} |
+| 1 | 定义 | abstract class ClassName {} | interface ClassName {} |
 | 2 | 组成 | 全局常量、抽象方法、普通方法、静态方法、构造、成员变量 | 全局常量、抽象方法、普通方法、静态方法 |
 | 3 | 权限 | 各种权限均可 | public |
 | 4 | 子类使用 | extends | implements |

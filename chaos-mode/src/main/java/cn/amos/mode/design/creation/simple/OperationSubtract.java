@@ -1,4 +1,4 @@
-package cn.amos.mode.design.factory;
+package cn.amos.mode.design.creation.simple;
 
 /**
  * PROJECT: chaos
@@ -7,11 +7,10 @@ package cn.amos.mode.design.factory;
  * @author DaoYuanWang
  * @date 2018/6/28
  */
-public class OperationAdd extends Operation {
+public class OperationSubtract extends AbstractOperation {
 
     @Override
     public double getResult() {
-
-        return num1 + num2;
+        return num1 - num2;
     }
 }

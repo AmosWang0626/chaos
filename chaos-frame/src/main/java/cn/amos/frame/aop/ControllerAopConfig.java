@@ -23,8 +23,8 @@ public class ControllerAopConfig {
     /**
      * 当前包下类: @Pointcut("within(cn.amos.design.*)")
      * 当前包及子包下类: @Pointcut("within(cn.amos.design..*)")
-     * 指定类, 注意其对接口无效: @Pointcut("within(cn.amos.design.factory.OperationAdd)")
-     * 指定接口可如右: @Pointcut("execution(* cn.amos.design.factory.Operation.*(..))")
+     * 指定类, 注意其对接口无效: @Pointcut("within(cn.amos.design.creation.OperationAdd)")
+     * 指定接口可如右: @Pointcut("execution(* cn.amos.design.creation.Operation.*(..))")
      */
     @Pointcut("within(cn.amos.web.controller.*)")
     public void pointcut() {

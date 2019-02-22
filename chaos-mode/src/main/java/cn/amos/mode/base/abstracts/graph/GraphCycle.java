@@ -1,17 +1,17 @@
-package cn.amos.mode.base.complex.demo2;
+package cn.amos.mode.base.abstracts.graph;
 
 /**
  * PROJECT: chaos
- * DESCRIPTION: 类说明
+ * DESCRIPTION: 圆
  *
  * @author DaoYuanWang
  * @date 2018/7/6
  */
-public class Cycle extends BaseShape {
+public class GraphCycle extends BaseGraph {
 
     private double radius;
 
-    public Cycle(double radius) {
+    public GraphCycle(double radius) {
         this.radius = radius;
     }
 
