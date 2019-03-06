@@ -5,6 +5,8 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
+import java.text.MessageFormat;
+import java.util.Arrays;
 
 /**
  * 使用CGLib实现动态代理，完全不受代理类必须实现接口的限制，
@@ -26,7 +28,7 @@ public class CglibProxy implements MethodInterceptor {
         // 设置代理目标
         enhancer.setSuperclass(clazz);
 
-        /*
+        /**
          * 设置回调地址
          * @see CglibProxy#intercept(Object, Method, Object[], MethodProxy)
          */
@@ -38,9 +40,9 @@ public class CglibProxy implements MethodInterceptor {
     @Override
     public Object intercept(Object obj, Method m, Object[] args, MethodProxy proxy) throws Throwable {
 
-        System.out.println("代理方法开始执行......");
+        System.out.println(MessageFormat.format("代理方法 {0}({1}) 开始执行 ......", m.getName(), Arrays.toString(args)));
         proxy.invokeSuper(obj, args);
-        System.out.println("代理方法执行完成......");
+        System.out.println(MessageFormat.format("代理方法 {0} 执行完成.", m.getName()));
 
         return null;
     }

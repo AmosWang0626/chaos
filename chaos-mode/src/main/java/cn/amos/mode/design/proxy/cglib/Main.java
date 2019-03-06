@@ -14,9 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
         TransSportsCar transSportsCar = (TransSportsCar) new CglibProxy().getProxy(TransSportsCar.class);
-        transSportsCar.start();
+        transSportsCar.start("AMOS", "洛阳");
         System.out.println("\n=============hua li li de fen ge fu==================\n");
         TransMotorcycle transMotorcycle = (TransMotorcycle) new CglibProxy().getProxy(TransMotorcycle.class);
-        transMotorcycle.start();
+        transMotorcycle.start("DDYY", "邓州");
     }
 }
