@@ -1,10 +1,10 @@
 package cn.amos.mode.design.proxy.jdk;
 
 import cn.amos.mode.design.proxy.jdk.cook.Cook;
-import cn.amos.mode.design.proxy.jdk.cook.CookPizza;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
+import java.util.Random;
 
 /**
  * NOTE: 类说明
@@ -15,14 +15,13 @@ import java.lang.reflect.Proxy;
  */
 public class Main {
 
-    public static void main(String[] args) {
-        Cook pizza = new CookPizza();
-        Class<?> clz = pizza.getClass();
-
-        InvocationHandler handler = new JdkProxy(pizza);
-
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        String name = new Random().nextBoolean() ?
+                "cn.amos.mode.design.proxy.jdk.cook.CookPizza" : "cn.amos.mode.design.proxy.jdk.cook.CookPizza";
+        Class clz = Class.forName(name);
+        InvocationHandler handler = new JdkProxy((Cook) clz.newInstance());
         Cook cook = (Cook) Proxy.newProxyInstance(clz.getClassLoader(), clz.getInterfaces(), handler);
-
-        cook.production();
+        cook.cooking("AAA", "BBB");
     }
+
 }
