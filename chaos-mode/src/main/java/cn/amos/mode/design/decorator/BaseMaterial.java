@@ -1,4 +1,4 @@
-package cn.amos.mode.design.decorator2;
+package cn.amos.mode.design.decorator;
 
 /**
  * PROJECT: chaos
@@ -15,11 +15,4 @@ public abstract class BaseMaterial extends BaseCake {
         this.baseCake = baseCake;
     }
 
-    /**
-     * 这里不想实现它, 故抽象
-     *
-     * @return 描述
-     */
-    @Override
-    public abstract String getDesc();
 }

@@ -18,9 +18,15 @@ public class TypeDemo {
      */
 
     public static void main(String[] args) {
-        others();
-        integerType();
-        byteType();
+        // others();
+        // integerType();
+        // byteType();
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(1 << 31);
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Long.MIN_VALUE);
+        System.out.println(Math.pow(2, 32));
     }
 
     private static void others() {

@@ -1,4 +1,4 @@
-package cn.amos.mode.design.decorator2;
+package cn.amos.mode.design.decorator;
 
 /**
  * PROJECT: chaos
@@ -9,8 +9,6 @@ package cn.amos.mode.design.decorator2;
  */
 public abstract class BaseCake {
 
-    String desc = "一个不能吃的抽象饼";
-
     /**
      * 抽象方法
      *
@@ -18,7 +16,10 @@ public abstract class BaseCake {
      */
     abstract double price();
 
-    public String getDesc() {
-        return desc;
-    }
+    /**
+     * 获取描述
+     *
+     * @return 描述
+     */
+    abstract String getDesc();
 }

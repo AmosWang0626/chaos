@@ -1,4 +1,4 @@
-package cn.amos.mode.design.decorator2;
+package cn.amos.mode.design.decorator;
 
 /**
  * PROJECT: chaos
@@ -7,11 +7,11 @@ package cn.amos.mode.design.decorator2;
  * @author DaoyuanWang
  * @date 2018/7/4
  */
-public class Main {
+public class ZzzMain {
 
     public static void main(String[] args) {
 
-        BaseCake baseCake = new HandCake();
+        BaseCake baseCake = new CakeAaa();
         baseCake = new MaterialEgg(baseCake);
         baseCake = new MaterialHam(baseCake);
         System.out.println(baseCake.getDesc());
@@ -19,7 +19,7 @@ public class Main {
 
         System.out.println("===========华丽丽的分隔符===========");
 
-        baseCake = new BagCake();
+        baseCake = new CakeAbb();
         baseCake = new MaterialHam(baseCake);
         baseCake = new MaterialEgg(baseCake);
         System.out.println(baseCake.getDesc());

@@ -1,4 +1,4 @@
-package cn.amos.mode.design.decorator2;
+package cn.amos.mode.design.decorator;
 
 /**
  * PROJECT: chaos
@@ -7,14 +7,15 @@ package cn.amos.mode.design.decorator2;
  * @author DaoYuanWang
  * @date 2018/7/4
  */
-public class HandCake extends BaseCake {
-
-    public HandCake() {
-        desc = "手抓饼";
-    }
+public class CakeAbb extends BaseCake {
 
     @Override
     double price() {
         return 4;
+    }
+
+    @Override
+    String getDesc() {
+        return "手抓饼";
     }
 }

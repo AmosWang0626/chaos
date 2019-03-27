@@ -1,4 +1,4 @@
-package cn.amos.mode.design.decorator2;
+package cn.amos.mode.design.decorator;
 
 /**
  * PROJECT: chaos
@@ -7,19 +7,19 @@ package cn.amos.mode.design.decorator2;
  * @author DaoYuanWang
  * @date 2018/7/4
  */
-public class MaterialEgg extends BaseMaterial {
+public class MaterialHam extends BaseMaterial {
 
-    public MaterialEgg(BaseCake baseCake) {
+    public MaterialHam(BaseCake baseCake) {
         super(baseCake);
     }
 
     @Override
     double price() {
-        return baseCake.price() + 1.5;
+        return baseCake.price() + 2;
     }
 
     @Override
     public String getDesc() {
-        return baseCake.getDesc() + " + 鸡蛋";
+        return baseCake.getDesc() + " + 火腿";
     }
 }
