@@ -15,7 +15,7 @@ public class Aaa {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int length = Integer.valueOf(sc.nextLine());
+        int length = Integer.parseInt(sc.nextLine());
         List<String> list = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             list.add(sc.nextLine());
