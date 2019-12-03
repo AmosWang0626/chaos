@@ -1,8 +1,8 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.request;
 
 import java.util.regex.Pattern;
 
-public class UrlCheck {
+public class UrlCheckUtils {
 
     /**
      * 校验正则

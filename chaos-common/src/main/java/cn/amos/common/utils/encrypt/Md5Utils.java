@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * MD5，数字摘要算法第五版，MD5会产生一个128位的消息摘要/散列值；
  */
-public class MD5EncryptionUtil {
+public class Md5Utils {
 
 	public static String encrypt(String sourceText){
 		byte[] text = sourceText.getBytes();

@@ -1,4 +1,4 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.base;
 
 import com.google.common.base.CaseFormat;
 

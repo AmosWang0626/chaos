@@ -1,4 +1,4 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.request;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +14,9 @@ import java.io.InputStreamReader;
  * @author <a href="mailto:amos.wang@xiaoi.com">amos.wang</a>
  * @date 2019/11/21
  */
-public class CurlRequestUtils {
+public class CurlUtils {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CurlRequestUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CurlUtils.class);
 
     /**
      * "172.16.36.14:8000?id={id}&ques={ques}"

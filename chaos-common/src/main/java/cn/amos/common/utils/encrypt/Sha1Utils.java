@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  * <p>
  * 散列还应该是防冲突的，即找不出具有相同散列结果的两条信息；
  */
-public class SHA1EncryptionUtil {
+public class Sha1Utils {
 
     public static String encrypt(String sourceText) {
         byte[] text = sourceText.getBytes();
@@ -39,7 +39,7 @@ public class SHA1EncryptionUtil {
     }
 
     public static void main(String args[]) {
-        System.out.println(SHA1EncryptionUtil.encrypt("12345620141030FD0B753AA470FE880D2E167E087F4CE5"));
+        System.out.println(Sha1Utils.encrypt("12345620141030FD0B753AA470FE880D2E167E087F4CE5"));
     }
 
 }

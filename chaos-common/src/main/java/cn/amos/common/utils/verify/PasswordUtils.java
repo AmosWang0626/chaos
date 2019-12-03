@@ -1,4 +1,4 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.verify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @author wangdaoyuan
  * @date 2018/9/4
  */
-public class PwdUtil {
+public class PasswordUtils {
 
     private static Pattern PATTERN = Pattern.compile("^.*[\\s]+.*$");
 

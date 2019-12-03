@@ -1,7 +1,7 @@
 package cn.amos.common.utils.encrypt;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -10,19 +10,39 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * PROJECT: chaos
+ * DESCRIPTION: byte[] <---> string
  *
- * @author DaoYuanWang
- * @date 2017/12/29
+ * @author wangdaoyuan
+ * @date 2018/8/30
  */
-public class TestBase64 {
+public class Base64Util {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestBase64.class);
+    /**
+     * string --> base64解码 ---> byte
+     *
+     * @param str 字符串
+     * @return byte[]
+     */
+    public static byte[] decode(String str) {
 
-    public static void main(String[] args) {
-        String str = "";
+        try {
+            return new BASE64Decoder().decodeBuffer(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        String gunZip = gunZip(str);
-        LOGGER.info(gunZip);
+        return null;
+    }
+
+    /**
+     * byte --> base64编码 ---> string
+     *
+     * @param bytes byte[]
+     * @return string
+     */
+    public static String encode(byte[] bytes) {
+
+        return new BASE64Encoder().encode(bytes);
     }
 
     /**
@@ -51,9 +71,17 @@ public class TestBase64 {
             // 最后对数据进行utf-8转码
             decompressed = out.toString("utf-8");
         } catch (IOException e) {
-            LOGGER.error("gunZip error ", e);
+            e.printStackTrace();
+            System.out.println("ERROR: " + Base64Util.class.getName() + " GUN_ZIP " + e.getMessage());
         }
         return decompressed;
+    }
+
+    public static void main(String[] args) {
+        String str = "1433233";
+
+        String gunZip = gunZip(str);
+        System.out.println(gunZip);
     }
 
 }

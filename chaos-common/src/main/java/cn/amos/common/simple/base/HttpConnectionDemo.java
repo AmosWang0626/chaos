@@ -1,6 +1,6 @@
 package cn.amos.common.simple.base;
 
-import cn.amos.common.utils.other.URLParamUtil;
+import cn.amos.common.utils.request.UrlParamUtils;
 import com.alibaba.fastjson.JSON;
 
 import java.io.BufferedReader;
@@ -45,7 +45,7 @@ public class HttpConnectionDemo {
 
         // 如果是get请求方式,将参数拼接到url后边
         if ("GET".equals(requestMethod.toUpperCase())) {
-            requestUrl += URLParamUtil.formatUrlMap(map, true, false);
+            requestUrl += UrlParamUtils.formatUrlMap(map, true, false);
         }
 
         try {

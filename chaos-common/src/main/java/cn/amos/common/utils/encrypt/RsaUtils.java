@@ -19,7 +19,7 @@ import java.util.Map;
  * @author Daoyuan
  * @date 2019/1/16
  */
-public class RsaEncryptUtil {
+public class RsaUtils {
 
     /**
      * 指定key的大小

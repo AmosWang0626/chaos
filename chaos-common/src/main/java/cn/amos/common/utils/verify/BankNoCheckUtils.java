@@ -1,9 +1,9 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.verify;
 
 /**
  * @author DaoyuanWang
  */
-public class BankNoCheck {
+public class BankNoCheckUtils {
     /*
     校验过程：
     1、从卡号最后一位数字开始，逆向将奇数位(1、3、5等等)相加。

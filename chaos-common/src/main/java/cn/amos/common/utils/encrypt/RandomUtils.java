@@ -2,7 +2,7 @@ package cn.amos.common.utils.encrypt;
 
 import java.util.Random;
 
-public class RandomUtil {
+public class RandomUtils {
 
     private static final String ALL_CHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LETTER_CHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

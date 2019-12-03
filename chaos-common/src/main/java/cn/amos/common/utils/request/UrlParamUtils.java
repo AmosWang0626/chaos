@@ -1,4 +1,4 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.request;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,7 +15,7 @@ import java.util.TreeMap;
  * @author AMOS
  * @date 2018/8/7
  */
-public class URLParamUtil {
+public class UrlParamUtils {
 
     /**
      * 方法用途: 对所有传入参数按照key排序,并生成url参数串

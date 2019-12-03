@@ -1,15 +1,19 @@
-package cn.amos.common.utils.other;
+package cn.amos.common.utils.base;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * @author DaoyuanWang
  */
-public class DateUtil {
+public class DateUtils {
 
     private static Calendar calendar = Calendar.getInstance();
 
@@ -107,9 +111,37 @@ public class DateUtil {
         return calendar.getTime();
     }
 
+
+    /**
+     * 格式化的日期
+     * 例如: 2019-01-27 15:30:00
+     */
+    public static final DateTimeFormatter ISO_DATE_TIME_SIMPLE;
+
+    static {
+        ISO_DATE_TIME_SIMPLE = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .append(DateTimeFormatter.ISO_LOCAL_DATE)
+                .appendLiteral(' ')
+                .appendValue(ChronoField.HOUR_OF_DAY, 2)
+                .appendLiteral(':')
+                .appendValue(ChronoField.MINUTE_OF_HOUR, 2)
+                .optionalStart()
+                .appendLiteral(':')
+                .appendValue(ChronoField.SECOND_OF_MINUTE, 2)
+                .toFormatter();
+    }
+
+
     public static void main(String[] args) {
         System.out.println(new Date());
         System.out.println(new Date().toInstant());
+
+        System.out.println(ISO_DATE_TIME_SIMPLE.format(LocalDateTime.now()));
+
+        // 默认smart日期
+        LocalDateTime localDateTime = LocalDateTime.parse("2019-02-31 23:59:59", ISO_DATE_TIME_SIMPLE);
+        System.out.println(localDateTime.toString());
     }
 
 }
