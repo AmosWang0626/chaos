@@ -37,10 +37,14 @@ public class CodeNoteDemo {
      * hello World
      *
      * @return 666
-     * @see StringDemo#hello()
+     * @see CodeNoteDemo#hello2()
      * @see <a href="www.baidu.com">666</a>
      */
     private static String hello() {
-        return new StringDemo().hello();
+        return new CodeNoteDemo().hello2();
+    }
+
+    private String hello2() {
+        return "hello";
     }
 }

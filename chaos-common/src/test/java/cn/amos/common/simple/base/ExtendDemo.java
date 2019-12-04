@@ -8,15 +8,15 @@ package cn.amos.common.simple.base;
  * @author AMOS
  * @date 2018/8/16 8:46
  */
-public class BaseFjdDemo {
+public class ExtendDemo {
+
     public static void main(String[] args) {
         Person chinese = new Chinese();
         chinese.eat();
         Person english = new English();
         english.eat();
-        English english1 = (English) english;
-        english1.eat();
     }
+
 }
 
 class Person {

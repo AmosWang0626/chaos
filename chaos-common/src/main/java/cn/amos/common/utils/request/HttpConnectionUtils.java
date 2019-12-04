@@ -1,4 +1,4 @@
-package cn.amos.common.simple.base;
+package cn.amos.common.utils.request;
 
 import cn.amos.common.utils.request.UrlParamUtils;
 import com.alibaba.fastjson.JSON;
@@ -19,7 +19,7 @@ import java.util.TreeMap;
  * @author AMOS
  * @date 2018/8/7
  */
-public class HttpConnectionDemo {
+public class HttpConnectionUtils {
 
     public static void main(String[] args) {
 
