@@ -17,21 +17,24 @@ public class ParamConversionController {
 
     @PostMapping("b2n")
     @MethodParamConversion
-    public String hello(@RequestBody ParamConversionForm form) {
+    public String b2n(@RequestBody ParamConversionForm form) {
 
         return JSON.toJSONString(form);
     }
 
     @PostMapping("n2b")
     @MethodParamConversion(convert = MethodParamConversion.Convert.N2B)
-    public String hello2(@RequestBody ParamConversionForm form) {
+    public String n2b(@RequestBody ParamConversionForm form) {
 
         return JSON.toJSONString(form);
     }
 
+    /**
+     * @see MethodParamConversion 只能作用于参数是表单的形式，如下则不生效，原因：直接作用于 “基本数据类型” 效果不好
+     */
     @GetMapping("simple")
     @MethodParamConversion
-    public String hello(String name) {
+    public String simple(String name) {
         return name;
     }
 

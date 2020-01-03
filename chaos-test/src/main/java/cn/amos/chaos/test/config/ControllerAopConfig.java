@@ -1,4 +1,4 @@
-package cn.amos.frame.aop;
+package cn.amos.chaos.test.config;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
  * @author DaoYuanWang
  * @date 2018/6/28
  */
-@Configuration
 @Aspect
-public class AopConfig {
+@Configuration
+public class ControllerAopConfig {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AopConfig.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerAopConfig.class);
 
     /**
      * 当前包下类: @Pointcut("within(cn.amos.design.*)")
@@ -26,22 +26,20 @@ public class AopConfig {
      * 指定类, 注意其对接口无效: @Pointcut("within(cn.amos.design.creation.OperationAdd)")
      * 指定接口可如右: @Pointcut("execution(* cn.amos.design.creation.Operation.*(..))")
      */
-    @Pointcut("within(cn.amos.frame.aop.*)")
+    @Pointcut("within(cn.amos.chaos.test.web.controller.*)")
     public void pointcut() {
     }
 
     @Before("pointcut()")
     public void executionPoint(JoinPoint joinPoint) {
-        LOGGER.info(joinPoint.getTarget().getClass().getSimpleName() + " 程序开始执行……");
+        LOGGER.info("方法【" + joinPoint.getSignature().getName() + "】开始执行...");
     }
 
     @Around("pointcut()")
     public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        LOGGER.info("-----------------------------");
-        LOGGER.info("====== 执行环绕通知开始 ======");
+        LOGGER.info("====== Http请求开始 ======");
 
         // 方法名 || 参数 || 返回值
-        String method = proceedingJoinPoint.getSignature().getName();
         Object[] args = proceedingJoinPoint.getArgs();
         StringBuilder sb = new StringBuilder();
         for (Object obj : args) {
@@ -49,18 +47,15 @@ public class AopConfig {
             sb.append("\t");
         }
         Object result = proceedingJoinPoint.proceed();
-        LOGGER.info("方法名: " + method + ", 参数: " + sb.toString());
-        LOGGER.info("返回值: " + result);
-
-        LOGGER.info("====== 执行环绕通知结束 =====");
+        LOGGER.info("--- 参数: " + sb.toString());
+        LOGGER.info("--- 返回值: " + result);
 
         return result;
     }
 
     @AfterReturning("pointcut()")
-    public void afterReturning(JoinPoint joinPoint) {
-        LOGGER.info(joinPoint.getSignature().getName() + " 执行完成......");
-        LOGGER.info("-----------------------------\n\n");
+    public void afterReturning() {
+        LOGGER.info("====== Http请求结束 ======\n");
     }
 
 }

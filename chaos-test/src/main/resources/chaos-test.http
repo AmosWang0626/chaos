@@ -32,4 +32,7 @@ Content-Type: application/json
   "age": 18
 }
 
+### string null to blank
+GET http://localhost:8050/conversion/simple?name=
+
 ###

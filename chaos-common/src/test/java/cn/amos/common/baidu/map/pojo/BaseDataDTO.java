@@ -1,6 +1,6 @@
 package cn.amos.common.baidu.map.pojo;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,15 +14,15 @@ import lombok.Setter;
 @Setter
 public class BaseDataDTO {
 
-    @JsonProperty("province_code")
+    @SerializedName("province_code")
     private String provinceCode;
     private String province;
 
-    @JsonProperty("city_code")
+    @SerializedName("city_code")
     private String cityCode;
     private String city;
 
-    @JsonProperty("district_code")
+    @SerializedName("district_code")
     private String districtCode;
     private String district;
 

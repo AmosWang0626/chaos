@@ -11,15 +11,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * @author DaoyuanWang
  */
-@SpringBootApplication(scanBasePackages = "cn.amos.frame")
+@SpringBootApplication
 @EnableScheduling
 @EnableAspectJAutoProxy
 @EnableDubboConfiguration
 @ImportResource({"classpath:spring-context.xml"})
 @PropertySource({"classpath:disconf.properties"})
-public class ChaosApplication {
+public class ChaosFrameApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ChaosApplication.class, args);
+        SpringApplication.run(ChaosFrameApplication.class, args);
     }
 }
