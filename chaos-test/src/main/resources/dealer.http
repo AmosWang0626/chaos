@@ -1,0 +1,6 @@
+### filter dealer info
+GET http://localhost:8050/dealer/info
+
+city=1001&tag=4s店
+
+###

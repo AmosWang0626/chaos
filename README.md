@@ -1,10 +1,9 @@
-# Java大杂烩
+# 用进废退
 > 目前项目分为五大模块：
 > - chaos-algorithm 算法与数据结构
 > - chaos-common 工具类与JAVA基础
 > - chaos-frame 框架
 > - chaos-mode 设计模式
-> - chaos-web 网关
 
 ## chaos-frame 框架
 - redis NoSQL
