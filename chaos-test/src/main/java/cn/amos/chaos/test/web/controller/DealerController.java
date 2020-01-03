@@ -1,6 +1,6 @@
-package cn.amos.chaos.test.controller;
+package cn.amos.chaos.test.web.controller;
 
-import cn.amos.chaos.test.pojo.dto.DealerInfoDTO;
+import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
 import cn.amos.chaos.test.service.DealerService;
 import cn.amos.common.response.GeneralResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ public class DealerController {
 
 
     @GetMapping("info")
-    public GeneralResponse<List<DealerInfoDTO>> dealerInfo(String city, String tag) {
+    public GeneralResponse<List<DealerInfoVO>> dealerInfo(String city, String tag) {
 
         return dealerService.getDealers(city, tag);
     }

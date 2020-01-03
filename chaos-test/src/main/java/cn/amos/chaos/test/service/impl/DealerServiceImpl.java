@@ -1,9 +1,10 @@
 package cn.amos.chaos.test.service.impl;
 
-import cn.amos.chaos.test.pojo.dto.DealerInfoDTO;
+import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
+import cn.amos.chaos.test.pojo.dto.DealerMapper;
 import cn.amos.chaos.test.pojo.dto.DealerResponse;
-import cn.amos.common.response.GeneralResponse;
 import cn.amos.chaos.test.service.DealerService;
+import cn.amos.common.response.GeneralResponse;
 import cn.amos.common.utils.base.RedisUtils;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
@@ -35,12 +36,13 @@ public class DealerServiceImpl implements DealerService {
 
 
     @Override
-    public GeneralResponse<List<DealerInfoDTO>> getDealers(String code, String tag) {
+    public GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag) {
         DealerResponse allDealer = getAllDealer();
         if (allDealer.getIsSuccess()) {
-            List<DealerInfoDTO> collect = allDealer.getData().stream()
+            List<DealerInfoVO> collect = allDealer.getData().stream()
                     .filter(dealerInfoDTO -> StringUtils.isBlank(code) || dealerInfoDTO.getCityId().equals(code))
                     .filter(dealerInfoDTO -> StringUtils.isBlank(tag) || dealerInfoDTO.getDealerTag().equals(tag))
+                    .map(DealerMapper.INSTANCE::convert)
                     .collect(Collectors.toList());
             return new GeneralResponse<>(collect);
         }

@@ -1,0 +1,35 @@
+### filter dealer info
+GET http://localhost:8050/dealer/info?city=4401&tag=4s店
+
+# city: 北京 1101 | 上海 3101 | 广州 4401
+# tag: 服务站 | 4s店
+
+# 下边的是发送邮件相关
+### send text email
+GET http://localhost:8050/email/text
+
+### send html email
+GET http://localhost:8050/email/html/hi
+
+# 下边是Bean 参数转换
+### string blank to null
+POST http://localhost:8050/conversion/b2n
+Content-Type: application/json
+
+{
+  "name": "   ",
+  "address": "  ",
+  "age": 18
+}
+
+### string null to blank
+POST http://localhost:8050/conversion/n2b
+Content-Type: application/json
+
+{
+  "name": null,
+  "address": null,
+  "age": 18
+}
+
+###

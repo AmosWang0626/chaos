@@ -1,6 +1,7 @@
-package cn.amos.chaos.test;
+package cn.amos.chaos.test.junit;
 
 import cn.amos.chaos.test.pojo.dto.DealerInfoDTO;
+import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
 import cn.amos.chaos.test.pojo.dto.DealerResponse;
 import cn.amos.chaos.test.service.DealerService;
 import cn.amos.common.response.GeneralResponse;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @SpringBootTest
-class ChaosTestApplicationTests {
+class DealerTests {
 
     @Value("${beijing-hyundai.dealer.info.url}")
     private String dealerInfoUrl;
@@ -52,7 +53,7 @@ class ChaosTestApplicationTests {
     public void filterDealers() {
         String code = "1101";
         String tag = "服务站";
-        GeneralResponse<List<DealerInfoDTO>> dealers = dealerService.getDealers(code, tag);
+        GeneralResponse<List<DealerInfoVO>> dealers = dealerService.getDealers(code, tag);
         System.out.println("dealer size is " + dealers.getBody().size());
         System.out.println("dealer body is " + dealers.getBody());
     }
