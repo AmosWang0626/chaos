@@ -1,10 +1,10 @@
-package cn.amos.common.map;
+package cn.amos.common.baidu.map.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.util.Map;
+import java.util.Set;
 
 /**
  * DESCRIPTION: SimpleVO
@@ -15,17 +15,27 @@ import java.util.Map;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class DataMapVO {
+public class DataListVO {
 
     private String id;
 
     private String name;
 
-    private Map<String, DataMapVO> childrenMap;
+    private Set<DataListVO> children;
 
-    public DataMapVO(String id, String name) {
+    public DataListVO(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return id.equals(((DataListVO) obj).id);
     }
 
     @Override

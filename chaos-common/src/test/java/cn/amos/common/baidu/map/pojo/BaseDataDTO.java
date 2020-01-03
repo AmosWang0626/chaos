@@ -1,4 +1,4 @@
-package cn.amos.common.map;
+package cn.amos.common.baidu.map.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

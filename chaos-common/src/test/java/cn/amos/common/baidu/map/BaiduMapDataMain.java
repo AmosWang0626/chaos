@@ -1,5 +1,8 @@
-package cn.amos.common.map;
+package cn.amos.common.baidu.map;
 
+import cn.amos.common.baidu.map.pojo.BaseDataDTO;
+import cn.amos.common.baidu.map.pojo.DataListVO;
+import cn.amos.common.baidu.map.pojo.DataMapVO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import org.springframework.core.io.ClassPathResource;
@@ -9,14 +12,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
- * DESCRIPTION: Main
+ * DESCRIPTION: 百度地图省市区原始JSON数据转化为树状JSON
  *
  * @author <a href="mailto:amos.wang@xiaoi.com">amos.wang</a>
  * @date 2019/12/4
  */
-public class MapMain {
+public class BaiduMapDataMain {
 
-    private static final String EXCEL_TO_JSON_FILE_NAME = "map.json";
+    private static final String EXCEL_TO_JSON_FILE_NAME = "baidu-map/map.json";
 
 
     public static void main(String[] args) {
@@ -54,9 +57,8 @@ public class MapMain {
             provinceListVO.setChildren(new HashSet<>());
             province.getChildrenMap().values().forEach(cityMapVO -> {
                 DataListVO cityListVO = new DataListVO(cityMapVO.getId(), cityMapVO.getName()).setChildren(new HashSet<>());
-                cityMapVO.getChildrenMap().values().forEach(districtMapVO -> {
-                    cityListVO.getChildren().add(new DataListVO(districtMapVO.getId(), districtMapVO.getName()));
-                });
+                cityMapVO.getChildrenMap().values().forEach(districtMapVO ->
+                        cityListVO.getChildren().add(new DataListVO(districtMapVO.getId(), districtMapVO.getName())));
                 provinceListVO.getChildren().add(cityListVO);
             });
             dataTreeList.add(provinceListVO);
@@ -65,6 +67,10 @@ public class MapMain {
         System.out.println(JSON.toJSONString(dataTreeList));
     }
 
+
+    /**
+     * 读取本地 json 文件，拿到省市区数据
+     */
     private static String getJson() {
         ClassPathResource resource = new ClassPathResource(EXCEL_TO_JSON_FILE_NAME);
 
