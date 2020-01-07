@@ -3,6 +3,7 @@ package cn.amos.chaos.test.web.controller;
 import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
 import cn.amos.chaos.test.service.DealerService;
 import cn.amos.common.response.GeneralResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ public class DealerController {
     private DealerService dealerService;
 
 
+    @CrossOrigin(origins = "*")
     @GetMapping("info")
     public GeneralResponse<List<DealerInfoVO>> dealerInfo(String city, String tag) {
 
