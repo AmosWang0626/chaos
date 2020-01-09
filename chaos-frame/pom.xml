@@ -84,7 +84,7 @@
     </dependencies>
 
     <build>
-        <finalName>${artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <!-- disconf -->
         <filters>
             <filter>src/main/resources/disconf.properties</filter>

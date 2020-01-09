@@ -1,12 +1,8 @@
 package cn.amos.common.utils.encrypt;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import org.apache.commons.codec.binary.Base64;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.zip.GZIPInputStream;
+import java.nio.charset.StandardCharsets;
 
 /**
  * PROJECT: chaos
@@ -18,70 +14,50 @@ import java.util.zip.GZIPInputStream;
 public class Base64Util {
 
     /**
-     * string --> base64解码 ---> byte
+     * decode string 2 byte
      *
-     * @param str 字符串
+     * @param str String
      * @return byte[]
      */
     public static byte[] decode(String str) {
-
-        try {
-            return new BASE64Decoder().decodeBuffer(str);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return new Base64().decode(str);
     }
 
     /**
-     * byte --> base64编码 ---> string
+     * decode string 2 byte 2 string
+     *
+     * @param str String
+     * @return byte[]
+     */
+    public static String decodeToString(String str) {
+        return new String(new Base64().decode(str), StandardCharsets.UTF_8);
+    }
+
+    /**
+     * encode byte 2 string
      *
      * @param bytes byte[]
      * @return string
      */
     public static String encode(byte[] bytes) {
-
-        return new BASE64Encoder().encode(bytes);
+        return new Base64().encodeToString(bytes);
     }
 
     /**
-     * <p>Description:使用gzip进行解压缩</p>
+     * encode byte 2 string
      *
-     * @param compressedStr ***
-     * @return **
+     * @param str string
+     * @return string
      */
-    private static String gunZip(String compressedStr) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        ByteArrayInputStream in = null;
-        GZIPInputStream ginzip = null;
-        byte[] compressed = null;
-        String decompressed = null;
-        try {
-            // 对返回数据BASE64解码
-            compressed = new sun.misc.BASE64Decoder().decodeBuffer(compressedStr);
-            in = new ByteArrayInputStream(compressed);
-            ginzip = new GZIPInputStream(in);
-            // 解码后对数据gzip解压缩
-            byte[] buffer = new byte[1024];
-            int offset = -1;
-            while ((offset = ginzip.read(buffer)) != -1) {
-                out.write(buffer, 0, offset);
-            }
-            // 最后对数据进行utf-8转码
-            decompressed = out.toString("utf-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("ERROR: " + Base64Util.class.getName() + " GUN_ZIP " + e.getMessage());
-        }
-        return decompressed;
+    public static String encodeString(String str) {
+        return new Base64().encodeToString(str.getBytes(StandardCharsets.UTF_8));
     }
 
     public static void main(String[] args) {
-        String str = "1433233";
+        String str = "666···~~~测试一下？@！……；‘’“”:''???|||";
 
-        String gunZip = gunZip(str);
-        System.out.println(gunZip);
+        System.out.println(str = encodeString(str));
+        System.out.println(decodeToString(str));
     }
 
 }
