@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /**
  * PROJECT: chaos
  * DESCRIPTION: 类说明
@@ -31,31 +34,29 @@ public class ControllerAopConfig {
     }
 
     @Before("pointcut()")
-    public void executionPoint(JoinPoint joinPoint) {
-        LOGGER.info("方法【" + joinPoint.getSignature().getName() + "】开始执行...");
+    public void before(JoinPoint joinPoint) {
+        LOGGER.info("aop-03 >>> method: [" + joinPoint.getSignature().getName() + "] run begin...");
     }
 
     @Around("pointcut()")
-    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        LOGGER.info("====== Http请求开始 ======");
+    public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        LOGGER.info("aop-01 >>> ====== http request begin ======");
 
         // 方法名 || 参数 || 返回值
-        Object[] args = proceedingJoinPoint.getArgs();
-        StringBuilder sb = new StringBuilder();
-        for (Object obj : args) {
-            sb.append(obj.toString());
-            sb.append("\t");
-        }
+        String params = Arrays.stream(proceedingJoinPoint.getArgs())
+                .map(Object::toString)
+                .collect(Collectors.joining(",", "[", "]"));
+        LOGGER.info("aop-02 >>> params: " + params);
+
         Object result = proceedingJoinPoint.proceed();
-        LOGGER.info("--- 参数: " + sb.toString());
-        LOGGER.info("--- 返回值: " + result);
+        LOGGER.info("aop-04 >>> return: " + result.getClass().getSimpleName());
 
         return result;
     }
 
     @AfterReturning("pointcut()")
     public void afterReturning() {
-        LOGGER.info("====== Http请求结束 ======\n");
+        LOGGER.info("aop-05 >>> ====== http request finish ======\n");
     }
 
 }
