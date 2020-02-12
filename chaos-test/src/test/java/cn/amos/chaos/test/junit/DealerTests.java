@@ -53,7 +53,7 @@ class DealerTests {
     public void filterDealers() {
         String code = "1101";
         String tag = "服务站";
-        GeneralResponse<List<DealerInfoVO>> dealers = dealerService.getDealers(code, tag);
+        GeneralResponse<List<DealerInfoVO>> dealers = dealerService.getDealers(code, tag, "凯翔");
         System.out.println("dealer size is " + dealers.getBody().size());
         System.out.println("dealer body is " + dealers.getBody());
     }

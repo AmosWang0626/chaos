@@ -36,12 +36,13 @@ public class DealerServiceImpl implements DealerService {
 
 
     @Override
-    public GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag) {
+    public GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag, String storeKeyword) {
         DealerResponse allDealer = getAllDealer();
         if (allDealer.getIsSuccess()) {
             List<DealerInfoVO> collect = allDealer.getData().stream()
                     .filter(dealerInfoDTO -> StringUtils.isBlank(code) || dealerInfoDTO.getCityId().equals(code))
                     .filter(dealerInfoDTO -> StringUtils.isBlank(tag) || dealerInfoDTO.getDealerTag().equals(tag))
+                    .filter(dealerInfoDTO -> StringUtils.isBlank(storeKeyword) || dealerInfoDTO.getDealerName().contains(storeKeyword))
                     .map(DealerMapper.INSTANCE::convert)
                     .collect(Collectors.toList());
             return new GeneralResponse<>(collect);

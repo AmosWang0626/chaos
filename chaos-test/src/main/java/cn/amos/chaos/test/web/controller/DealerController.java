@@ -27,9 +27,9 @@ public class DealerController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("info")
-    public GeneralResponse<List<DealerInfoVO>> dealerInfo(String city, String tag) {
+    public GeneralResponse<List<DealerInfoVO>> dealerInfo(String city, String tag, String storeKeyword) {
 
-        return dealerService.getDealers(city, tag);
+        return dealerService.getDealers(city, tag, storeKeyword);
     }
 
 }

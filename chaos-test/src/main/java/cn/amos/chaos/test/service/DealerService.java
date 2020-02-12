@@ -20,6 +20,6 @@ public interface DealerService {
      * @param tag  门店类型
      * @return list dealer
      */
-    GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag);
+    GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag, String storeKeyword);
 
 }
