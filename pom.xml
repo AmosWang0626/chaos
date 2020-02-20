@@ -15,6 +15,7 @@
         <module>chaos-algorithm</module>
         <module>chaos-common</module>
         <module>chaos-test</module>
+        <module>chaos-design</module>
     </modules>
 
     <parent>
