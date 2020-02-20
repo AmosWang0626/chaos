@@ -35,4 +35,37 @@ public class OperationFactory {
 
         return operation;
     }
+
+    public static class OperationAdd extends AbstractOperation {
+
+        @Override
+        public double getResult() {
+            return getNum1() + getNum2();
+        }
+    }
+
+    public static class OperationSubtract extends AbstractOperation {
+
+        @Override
+        public double getResult() {
+            return getNum1() - getNum2();
+        }
+    }
+
+    public static class OperationMultiply extends AbstractOperation {
+
+        @Override
+        public double getResult() {
+            return getNum1() * getNum2();
+        }
+    }
+
+    public static class OperationDivide extends AbstractOperation {
+
+        @Override
+        public double getResult() {
+            return getNum1() / getNum2();
+        }
+    }
+
 }

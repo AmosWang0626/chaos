@@ -12,15 +12,21 @@ import java.math.BigDecimal;
 public class Main {
 
     public static void main(String[] args) {
-        IFactory factory =
-//                new AddFactory();
-//                new SubtractFactory();
-                new MultiplyFactory();
-//                new DivideFactory();
+        operation(new AddFactory());
+        operation(new SubtractFactory());
+        operation(new MultiplyFactory());
+        operation(new DivideFactory());
+    }
+
+    private static void operation(IFactory factory) {
         BaseOperation operation = factory.getInstance();
         operation.setNum1(new BigDecimal(100));
         operation.setNum2(new BigDecimal(100));
-        System.out.println(operation.getResult());
+
+        String className = operation.getClass().getSimpleName();
+        className = className.replace("Operation", "\t\t");
+
+        System.out.println(className + operation.getResult());
     }
 
 }

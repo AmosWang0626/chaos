@@ -19,6 +19,11 @@ public abstract class BaseOperation {
     private BigDecimal num1;
     private BigDecimal num2;
 
+    /**
+     * 获取计算结果
+     *
+     * @return result
+     */
     public abstract BigDecimal getResult();
 
 }

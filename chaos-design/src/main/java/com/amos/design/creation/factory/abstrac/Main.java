@@ -25,13 +25,24 @@ public class Main {
      * 系统提供一个产品类的库，所有的产品以同样的接口出现，从而使客户端不依赖于具体实现。
      */
     public static void main(String[] args) {
-        // Factory factory = new FactoryMySQL();
-        Factory factory = new FactoryOracle();
-        Manage manage = factory.dataManage();
+        lock(new Factory.FactoryMySql());
+
+        System.out.println();
+
+        noneLock(new Factory.FactoryOracle());
+    }
+
+    public static void lock(Factory.BaseFactory factory) {
+        LockOperate.LockDao manage = factory.dataManage();
         manage.lock();
-        User user = factory.createUser();
+        UserOperate.BaseUserDao user = factory.createUser();
         System.out.println("Name: " + user.getName());
         manage.unLock();
+    }
+
+    public static void noneLock(Factory.BaseFactory factory) {
+        UserOperate.BaseUserDao user = factory.createUser();
+        System.out.println("Name: " + user.getName());
     }
 
 }

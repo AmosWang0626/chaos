@@ -1,4 +1,4 @@
-package cn.amos.mode.design.creation.builder;
+package com.amos.design.creation.builder;
 
 /**
  * PROJECT: chaos
@@ -7,11 +7,11 @@ package cn.amos.mode.design.creation.builder;
  * @author Daoyuan
  * @date 2019/3/7
  */
-public abstract class BaseCakeBuild {
+public abstract class BaseCake {
 
     protected String name;
 
-    public BaseCakeBuild(String name) {
+    public BaseCake(String name) {
         this.name = name;
     }
 
@@ -38,6 +38,6 @@ public abstract class BaseCakeBuild {
     /**
      * 烙好出锅
      */
-    public abstract void pan();
+    public abstract void finish();
 
 }
