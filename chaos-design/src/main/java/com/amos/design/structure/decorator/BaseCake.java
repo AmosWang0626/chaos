@@ -7,7 +7,7 @@ package com.amos.design.structure.decorator;
  * @author DaoyuanWang
  * @date 2018/7/3
  */
-abstract class BaseSweet {
+abstract class BaseCake {
 
     /**
      * 装扮方法
@@ -22,5 +22,12 @@ abstract class BaseSweet {
      * @return 总价
      */
     abstract double price();
+
+    /**
+     * 单价
+     *
+     * @return 总价
+     */
+    abstract double unitPrice();
 
 }

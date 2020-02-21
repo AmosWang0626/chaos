@@ -7,15 +7,15 @@ package com.amos.design.structure.decorator;
  * @author dell
  * @date 2019/3/27
  */
-public abstract class BaseDecorator extends BaseSweet {
+public abstract class BaseDecorator extends BaseCake {
 
-    private BaseSweet baseSweet;
+    private BaseCake baseCake;
 
-    BaseDecorator(BaseSweet baseSweet) {
-        this.baseSweet = baseSweet;
+    BaseDecorator(BaseCake baseCake) {
+        this.baseCake = baseCake;
     }
 
-    public BaseSweet getBaseSweet() {
-        return baseSweet;
+    public BaseCake getBaseCake() {
+        return baseCake;
     }
 }
