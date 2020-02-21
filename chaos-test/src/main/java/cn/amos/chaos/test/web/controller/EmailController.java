@@ -2,6 +2,7 @@ package cn.amos.chaos.test.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -25,6 +26,9 @@ public class EmailController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmailController.class);
 
+    @Value("${spring.mail.username}")
+    private String fromEmail;
+
     @Resource
     private JavaMailSender javaMailSender;
 
@@ -32,7 +36,7 @@ public class EmailController {
     public String text() {
         // 纯文本邮件对象
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setFrom("1833063210@qq.com");
+        mailMessage.setFrom(fromEmail);
         mailMessage.setTo("amos.wang@xiaoi.com");
         mailMessage.setSubject("amos");
         mailMessage.setText("Hello World!");
@@ -40,6 +44,7 @@ public class EmailController {
         try {
             javaMailSender.send(mailMessage);
         } catch (Exception e) {
+            e.printStackTrace();
             LOGGER.error("发送 TEXT 邮件时发生异常! [{}]", e.getMessage());
             return "发送 TEXT 邮件时发生异常!";
         }
@@ -51,7 +56,7 @@ public class EmailController {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-            helper.setFrom("1833063210@qq.com");
+            helper.setFrom(fromEmail);
             helper.setTo("amos.wang@xiaoi.com");
             helper.setSubject("amos");
             StringBuilder sb = new StringBuilder();
@@ -69,6 +74,7 @@ public class EmailController {
 
             javaMailSender.send(mimeMessage);
         } catch (Exception e) {
+            e.printStackTrace();
             LOGGER.error("发送 HTML 邮件时发生异常! [{}]", e.getMessage());
             return "发送 HTML 邮件时发生异常!";
         }
