@@ -9,7 +9,7 @@ import java.text.MessageFormat;
  * @author Daoyuan
  * @date 2019/3/8
  */
-public class VirtualDriver implements DriveInterface {
+public class VirtualDriver implements Drive {
 
     @Override
     public String drive(String model) {

@@ -9,7 +9,7 @@ import java.text.MessageFormat;
  * @author Daoyuan
  * @date 2019/3/8
  */
-public class RealDriver implements DriveInterface {
+public class RealDriver implements Drive {
 
     private String name;
 
@@ -19,7 +19,7 @@ public class RealDriver implements DriveInterface {
 
     @Override
     public String drive(String model) {
-        System.out.println(MessageFormat.format("\t车手 [{0}] 驾驶 [{1}] >>>>>> 完成比赛", name, model));
+        System.out.println(MessageFormat.format("\t{0} 驾驶 [{1}] >>>>>> 完成比赛", name, model));
 
         return "Very good!";
     }
