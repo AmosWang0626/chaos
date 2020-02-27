@@ -9,7 +9,13 @@ package com.amos.design.behavior.template;
 public class Main {
 
     public static void main(String[] args) {
+        BaseClass clz = new BaseClass.ConcreteClass1();
+        clz.doFunc();
 
+        System.out.println();
+
+        clz = new BaseClass.ConcreteClass2();
+        clz.doFunc();
     }
 
 }
