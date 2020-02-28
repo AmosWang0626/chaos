@@ -9,7 +9,12 @@ package com.amos.design.behavior.visitor;
 public class Main {
 
     public static void main(String[] args) {
+        PersonStruct struct = new PersonStruct();
+        struct.add(new Persons.Man());
+        struct.add(new Persons.Woman());
 
+        struct.execute(new Visitors.VisitorSuccess());
+        struct.execute(new Visitors.VisitorLove());
     }
 
 }
