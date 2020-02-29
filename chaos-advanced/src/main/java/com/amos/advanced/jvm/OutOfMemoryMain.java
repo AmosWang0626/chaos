@@ -1,15 +1,15 @@
-package cn.amos.chaos.test.jvm;
+package com.amos.advanced.jvm;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DESCRIPTION: test oom
+ * DESCRIPTION: 测试内存溢出
  *
  * @author amos.wang
  * @date 2019/11/4
  */
-public class OOMMain {
+public class OutOfMemoryMain {
 
     private static String STR = "string";
 

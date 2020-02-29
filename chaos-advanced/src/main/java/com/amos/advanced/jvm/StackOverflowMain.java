@@ -1,7 +1,7 @@
-package cn.amos.chaos.test.jvm;
+package com.amos.advanced.jvm;
 
 /**
- * DESCRIPTION: 测试下 sof
+ * DESCRIPTION: 栈溢出测试
  *
  * @author amos.wang
  * @date 2019/11/4
@@ -14,14 +14,15 @@ public class StackOverflowMain {
         try {
             test.increment();
         } catch (StackOverflowError e) {
-            System.out.println("sof error, this count is " + test.count);
+            System.out.println("sof error, this count is " + Test.count);
             e.printStackTrace();
         }
     }
 
-    static class Test {
+    public static class Test {
         private static int count;
-        void increment() {
+
+        public void increment() {
             count++;
             increment();
         }

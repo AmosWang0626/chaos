@@ -1,4 +1,4 @@
-package com.amos.design;
+package com.amos.advanced;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author amos.wang
  */
 @SpringBootApplication
-public class DesignApplication {
+public class AdvancedApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DesignApplication.class, args);
+        SpringApplication.run(AdvancedApplication.class, args);
     }
 
 }

@@ -1,4 +1,4 @@
-package cn.amos.chaos.test.jvm;
+package com.amos.advanced.jvm;
 
 import net.sf.cglib.proxy.CallbackFilter;
 import net.sf.cglib.proxy.Dispatcher;
@@ -10,12 +10,12 @@ import java.lang.management.ManagementFactory;
 import java.lang.reflect.Method;
 
 /**
- * DESCRIPTION: test oom
+ * DESCRIPTION: 测试内存溢出
  *
  * @author amos.wang
  * @date 2019/11/4
  */
-public class OOMByCglibMain {
+public class OutOfMemoryByCglibMain {
 
     /**
      * -verbose:gc -XX:+HeapDumpOnOutOfMemoryError
@@ -26,7 +26,7 @@ public class OOMByCglibMain {
         ClassLoadingMXBean loadingBean = ManagementFactory.getClassLoadingMXBean();
         while (true) {
             Enhancer enhancer = new Enhancer();
-            enhancer.setSuperclass(OOMByCglibMain.class);
+            enhancer.setSuperclass(OutOfMemoryByCglibMain.class);
             enhancer.setCallbackTypes(new Class[]{Dispatcher.class, MethodInterceptor.class});
             enhancer.setCallbackFilter(new CallbackFilter() {
                 @Override

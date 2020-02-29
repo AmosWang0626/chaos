@@ -10,11 +10,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>chaos-frame</module>
+        <module>chaos-advanced</module>
         <module>chaos-algorithm</module>
         <module>chaos-common</module>
-        <module>chaos-test</module>
         <module>chaos-design</module>
+        <module>chaos-frame</module>
+        <module>chaos-test</module>
     </modules>
 
     <parent>
