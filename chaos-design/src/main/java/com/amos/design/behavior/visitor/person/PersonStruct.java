@@ -1,4 +1,4 @@
-package com.amos.design.behavior.visitor;
+package com.amos.design.behavior.visitor.person;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -10,18 +10,16 @@ package com.amos.design.behavior.chain;
 public class Main {
 
     public static void main(String[] args) {
-        NoticeUtils.BaseNotice supervisor = new NoticeUtils.NoticeSupervisor();
-        NoticeUtils.BaseNotice manager = new NoticeUtils.NoticeManager();
-        NoticeUtils.BaseNotice boss = new NoticeUtils.NoticeBoss();
+        BaseDeveloper junior = new Developers.DeveloperOne();
+        BaseDeveloper middle = new Developers.DeveloperTwo();
+        BaseDeveloper advanced = new Developers.DeveloperThree();
 
-        manager.setNextNotice(supervisor);
-        boss.setNextNotice(manager);
+        junior.plusDeveloper(middle);
+        middle.plusDeveloper(advanced);
 
-        boss.notice(NoticeUtils.NoticeLevel.BOSS, "BOSS 1号通知");
-        System.out.println();
-        boss.notice(NoticeUtils.NoticeLevel.MANAGER, "MANAGER 2号通知");
-        System.out.println();
-        boss.notice(NoticeUtils.NoticeLevel.SUPERVISOR, "SUPERVISOR 3号通知");
+        junior.develop(BaseDeveloper.HardLevel.ONE, "研发 一般需求");
+        junior.develop(BaseDeveloper.HardLevel.TWO, "研发 中级需求");
+        junior.develop(BaseDeveloper.HardLevel.THREE, "研发 高级需求");
     }
 
 }
