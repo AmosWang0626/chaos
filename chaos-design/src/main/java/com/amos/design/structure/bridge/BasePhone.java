@@ -32,32 +32,4 @@ public abstract class BasePhone {
         System.out.println(info);
     }
 
-
-    /**
-     * MI
-     */
-    public static class MiPhone extends BasePhone {
-        public MiPhone(Memory memory, Storage storage) {
-            super(memory, storage);
-        }
-
-        @Override
-        public String brand() {
-            return "MI";
-        }
-    }
-
-    /**
-     * HUA WEI
-     */
-    public static class HuaWeiPhone extends BasePhone {
-        public HuaWeiPhone(Memory memory, Storage storage) {
-            super(memory, storage);
-        }
-
-        @Override
-        public String brand() {
-            return "HUA-WAI";
-        }
-    }
 }

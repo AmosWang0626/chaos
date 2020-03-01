@@ -15,7 +15,7 @@ public class Main {
         baseSweet = new Decorators.AaaDecorator(baseSweet);
         baseSweet = new Decorators.BbbDecorator(baseSweet);
         baseSweet = new Decorators.CccDecorator(baseSweet);
-        System.out.println(baseSweet.wear() + "\t" + baseSweet.price());
+        System.out.println(baseSweet.wear() + "\t总价：" + baseSweet.price());
 
         System.out.println("==========华丽丽的分隔符============");
 
@@ -23,6 +23,6 @@ public class Main {
         baseSweet = new Cakes.BbbCake();
         baseSweet = new Decorators.BbbDecorator(baseSweet);
         baseSweet = new Decorators.CccDecorator(baseSweet);
-        System.out.println(baseSweet.wear() + "\t" + baseSweet.price());
+        System.out.println(baseSweet.wear() + "\t总价：" + baseSweet.price());
     }
 }

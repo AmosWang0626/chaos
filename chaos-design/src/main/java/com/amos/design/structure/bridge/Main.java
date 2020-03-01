@@ -15,20 +15,20 @@ public class Main {
      */
     public static void main(String[] args) {
         // mi
-        BasePhone phone = new BasePhone.MiPhone(
+        BasePhone phone = new Phones.MiPhone(
                 new Memory.Memory8G(), new Storage.Storage128G());
         phone.info();
 
-        phone = new BasePhone.MiPhone(
+        phone = new Phones.MiPhone(
                 new Memory.Memory16G(), new Storage.Storage256G());
         phone.info();
 
         // hua wei
-        phone = new BasePhone.HuaWeiPhone(
+        phone = new Phones.HuaWeiPhone(
                 new Memory.Memory8G(), new Storage.Storage64G());
         phone.info();
 
-        phone = new BasePhone.HuaWeiPhone(
+        phone = new Phones.HuaWeiPhone(
                 new Memory.Memory8G(), new Storage.Storage128G());
         phone.info();
     }

@@ -21,4 +21,30 @@ public class SmsImpls implements Sms {
         new CmcImpl().sendSms();
         new CucImpl().sendSms();
     }
+
+
+    private static class CtcImpl implements Sms {
+        @Override
+        public void sendSms() {
+            System.out.print("中国电信-发送短信\t");
+            System.out.println("http://www.chinatelecom.com.cn/");
+        }
+    }
+
+    private static class CmcImpl implements Sms {
+        @Override
+        public void sendSms() {
+            System.out.print("中国移动-发送短信\t");
+            System.out.println("http://www.chinamobile.com/");
+        }
+    }
+
+    private static class CucImpl implements Sms {
+        @Override
+        public void sendSms() {
+            System.out.print("中国联通-发送短信\t");
+            System.out.println("http://www.chinaunicom.com.cn/");
+        }
+    }
+
 }
