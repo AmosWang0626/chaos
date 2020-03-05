@@ -1,10 +1,13 @@
 package cn.amos.frame.spring;
 
+import cn.amos.frame.spring.dao.MapperRegister;
 import cn.amos.frame.spring.service.IndexService;
+import cn.amos.frame.spring.service.MapperService;
 import cn.amos.frame.spring.service.UserService;
 import cn.amos.frame.spring.utils.AmosUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 
 /**
  * DESCRIPTION: Test Spring Application
@@ -12,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author <a href="mailto:amos.wang@xiaoi.com">amos.wang</a>
  * @date 3/1/2020
  */
+@Import(MapperRegister.class)
 @ComponentScan("cn.amos.frame.spring")
 public class TestSpringApplication {
 
@@ -37,6 +41,10 @@ public class TestSpringApplication {
 
         UserService userService = context.getBean(UserService.class);
         AmosUtils.println(userService.getIndexService());
+
+        MapperService mapperService = context.getBean(MapperService.class);
+        AmosUtils.println(mapperService);
+        mapperService.queryAll();
     }
 
 }
