@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
  * @author DaoYuanWang
  * @date 2018/6/28
  */
-@Aspect
-@Configuration
+//@Aspect
+//@Configuration
 public class ControllerAopConfig {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ControllerAopConfig.class);
