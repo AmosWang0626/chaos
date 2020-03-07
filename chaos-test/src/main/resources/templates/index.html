@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jvm test</title>
+    <style>
+        .btn {
+            font-size: 18px;
+            padding: 6px;
+            height: 300%;
+        }
+
+        .ipt {
+            height: 25px;
+        }
+
+        .fs14 {
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function openClick() {
+            // init
+            document.getElementById("openMessage").innerText = "循环执行中";
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "jvm/range");
+            xhr.send(null);
+            xhr.onload = function () {
+                document.getElementById("openMessage").innerText = xhr.responseText
+            };
+            xhr.onerror = function () {
+                alert("error: " + xhr.status)
+            };
+        }
+
+        function jumpClick() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "jvm/jump");
+            xhr.send(null);
+            xhr.onload = function () {
+                document.getElementById("jumpMessage").innerText = xhr.responseText
+            };
+            xhr.onerror = function () {
+                alert("error: " + xhr.status)
+            };
+        }
+
+        function hexClick() {
+            let val = document.getElementById("decimalInput").value;
+            if (!val) {
+                document.getElementById("hexMessage").innerText = "请输入十进制数字";
+                return
+            }
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "jvm/hex?num=" + val);
+            xhr.send(null);
+            xhr.onload = function () {
+                document.getElementById("hexMessage").innerText = xhr.responseText
+            };
+            xhr.onerror = function () {
+                alert("error: " + xhr.status)
+            };
+        }
+
+        function decimalClick() {
+            let val = document.getElementById("hexInput").value;
+            if (!val) {
+                document.getElementById("decimalMessage").innerText = "请输入十六进制字符串";
+                return
+            }
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "jvm/decimal?hex=" + val);
+            xhr.send(null);
+            xhr.onload = function () {
+                document.getElementById("decimalMessage").innerText = xhr.responseText
+            };
+            xhr.onerror = function () {
+                alert("error: " + xhr.status)
+            };
+        }
+    </script>
+</head>
+<body>
+<h1>JVM TEST</h1>
+<button id="jump" class="btn" onclick="jumpClick()">改变循环状态</button>
+<span class="fs14">默认关闭</span>
+<h3 id="jumpMessage"></h3>
+<br>
+<button id="open" class="btn" onclick="openClick()">执行循环</button>
+<h3 id="openMessage"></h3>
+<br>
+<br>
+<h1>进制转换 <span class="fs14">16进制不区分大小写</span></h1>
+十进制：<input id="decimalInput" class="ipt" type="number"/>
+<button id="hexBtn" class="btn" onclick="hexClick()">转化为16进制</button>
+<h3 id="hexMessage"></h3>
+<br>
+<br>
+<div></div>
+十六进制：<input id="hexInput" class="ipt" type="text"/>
+<button id="decimalBtn" class="btn" onclick="decimalClick()">转化为10进制</button>
+<h3 id="decimalMessage"></h3>
+</body>
+</html>
