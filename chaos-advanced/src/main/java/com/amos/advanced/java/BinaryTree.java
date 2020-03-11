@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -17,6 +18,44 @@ import java.util.Random;
 public class BinaryTree {
 
     public static void main(String[] args) {
+        simpleBinaryTree();
+        randomBinaryTree();
+    }
+
+    private static void simpleBinaryTree() {
+        // init list
+        List<Integer> list = Arrays.asList(30, 70, 20, 35, 60, 80, 19, 25, 37, 65, 75);
+        System.out.println("原始数组: " + list + ", 数组size: " + list.size());
+
+        TreeNode root = new TreeNode(50);
+        for (Integer temp : list) {
+            root.add(new TreeNode(temp));
+        }
+        System.out.print("原始二叉树: ");
+        range(root);
+
+        /// 二叉树删除含左右子树节点
+        System.out.print("删除叶子节点[30]: ");
+        root.delete(new TreeNode(30));
+        range(root);
+
+        /// 二叉树删除叶子节点
+        System.out.print("删除叶子节点[19]: ");
+        root.delete(new TreeNode(19));
+        range(root);
+
+        /// 二叉树删除只含左子树
+        System.out.print("删除叶子节点[60]: ");
+        root.delete(new TreeNode(60));
+        range(root);
+
+        /// 二叉树删除只含右子树
+        System.out.print("删除叶子节点[80]: ");
+        root.delete(new TreeNode(80));
+        range(root);
+    }
+
+    public static void randomBinaryTree() {
         TreeNode root = new TreeNode(50);
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -61,6 +100,9 @@ public class BinaryTree {
         }
         if (node.right != null) {
             range(node.right);
+        }
+        if (node.parent == null) {
+            System.out.println();
         }
     }
 
@@ -112,16 +154,15 @@ public class BinaryTree {
                     this.left.delete(node);
                 } else {
                     System.out.println("LEFT NOT FOUND!!!");
-                    return;
                 }
-            }
-            if (this.value < node.value) {
+                return;
+            } else if (this.value < node.value) {
                 if (this.right != null) {
                     this.right.delete(node);
                 } else {
                     System.out.println("LEFT NOT FOUND!!!");
-                    return;
                 }
+                return;
             }
 
             /*
@@ -133,7 +174,7 @@ public class BinaryTree {
 
             // 1.删除的节点没有左右节点,可直接删除
             if (this.left == null && this.right == null) {
-                if (this.parent.left.value.equals(this.value)) {
+                if (this.parent.left != null && this.parent.left.value.equals(this.value)) {
                     this.parent.left = null;
                 } else {
                     this.parent.right = null;
@@ -143,21 +184,41 @@ public class BinaryTree {
 
             // 2.左右子树都不为空, 找左子树最大或右子树最小替代中间节点
             if (this.left != null && this.right != null) {
-                TreeNode maxLeft = getMaxLeft(this.left);
-                this.value = maxLeft.value;
+                // 找到左子树最大
+                TreeNode temp = this.left;
+                temp = getLeftMax(temp);
+
+                /// 找到右子树最小
+                // TreeNode temp = this.right;
+                // temp = getRightMin(temp);
+
+                // 删除根节点
+                if (this.parent == null) {
+                    System.out.println("1.0版本暂不支持删除根节点");
+                    return;
+                }
+                temp.parent = this.parent;
+                temp.left = this.left;
+                temp.right = this.right;
+                if (this.parent.left != null && this.parent.left.value.equals(this.value)) {
+                    this.parent.left = temp;
+                } else {
+                    this.parent.right = temp;
+                }
+
                 return;
             }
 
             // 3.左右子树只有一个为空,下一节点顶上
             if (this.left != null) {
-                if (this.parent.left.value.equals(this.value)) {
+                if (this.parent.left != null && this.parent.left.value.equals(this.value)) {
                     this.parent.left = this.left;
                 } else {
                     this.parent.right = this.left;
                 }
                 return;
             }
-            if (this.parent.left.value.equals(this.value)) {
+            if (this.parent.left != null && this.parent.left.value.equals(this.value)) {
                 this.parent.left = this.right;
             } else {
                 this.parent.right = this.right;
@@ -170,33 +231,59 @@ public class BinaryTree {
          * @param node root下左子树
          * @return 左子树最大节点
          */
-        private TreeNode getMaxLeft(TreeNode node) {
-            if (node.right == null) {
+        private TreeNode getLeftMax(TreeNode node) {
+            while (node.right != null) {
+                node = node.right;
+            }
+            // 删除该节点引用
+            if (node.parent.left != null && node.parent.left.value.equals(node.value)) {
+                if (node.left != null) {
+                    node.parent.left = node.left;
+                    node.left.parent = node.parent;
+                } else {
+                    node.parent.left = null;
+                }
+            } else {
                 if (node.left != null) {
                     node.parent.right = node.left;
-                    node.left = null;
+                    node.left.parent = node.parent;
+                } else {
+                    node.parent.right = null;
                 }
-                return node;
             }
-            return getMaxLeft(node.right);
+            return node;
         }
 
         /**
-         * 获取左子树最大节点
+         * 获取右子树最小节点
          *
-         * @param node root下左子树
-         * @return 左子树最大节点
+         * @param node root下右子树
+         * @return 右子树最小节点
          */
-        private TreeNode getMinRight(TreeNode node) {
-            if (node.left == null) {
+        private TreeNode getRightMin(TreeNode node) {
+            while (node.left != null) {
+                node = node.left;
+            }
+            // 删除该节点引用
+            if (node.parent.left != null && node.parent.left.value.equals(node.value)) {
                 if (node.right != null) {
                     node.parent.left = node.right;
-                    node.right = null;
+                    node.right.parent = node.parent;
+                } else {
+                    node.parent.left = null;
                 }
-                return node;
+            } else {
+                if (node.right != null) {
+                    node.parent.right = node.right;
+                    node.right.parent = node.parent;
+                } else {
+                    node.parent.right = null;
+                }
             }
-            return getMinRight(node.left);
+
+            return node;
         }
+
     }
 
 }
