@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * PROJECT: interview
- * DESCRIPTION: note
+ * DESCRIPTION: += [注意 String 换行]
  *
  * @author dell
  * @date 2019/3/28

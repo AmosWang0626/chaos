@@ -6,17 +6,21 @@ import java.util.Scanner;
 
 /**
  * PROJECT: interview
- * DESCRIPTION: note
+ * DESCRIPTION: 奇偶位置字符分离
  *
  * @author dell
  * @date 2019/3/28
  */
 public class Day06 {
 
+    /**
+     * hacker       hce akr
+     * hello        hlo el
+     */
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner sc = new Scanner(System.in);
-        int length = Integer.valueOf(sc.nextLine());
+        int length = Integer.parseInt(sc.nextLine());
         List<String> list = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             list.add(sc.nextLine());

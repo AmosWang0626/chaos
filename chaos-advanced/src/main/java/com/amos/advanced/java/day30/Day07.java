@@ -5,23 +5,23 @@ import java.util.Scanner;
 
 /**
  * PROJECT: interview
- * DESCRIPTION: note
+ * DESCRIPTION: 数组颠倒顺序
  *
  * @author dell
  * @date 2019/3/28
  */
 public class Day07 {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int n = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        int n = SCANNER.nextInt();
+        SCANNER.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         int[] arr = new int[n];
 
-        String[] arrItems = scanner.nextLine().split(" ");
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        String[] arrItems = SCANNER.nextLine().split(" ");
+        SCANNER.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         for (int i = 0; i < n; i++) {
             int arrItem = Integer.parseInt(arrItems[i]);
@@ -41,7 +41,7 @@ public class Day07 {
 
         System.out.println(sb.toString().trim());
 
-        scanner.close();
+        SCANNER.close();
     }
 
 }

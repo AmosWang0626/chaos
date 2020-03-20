@@ -1,18 +1,15 @@
 package com.amos.advanced.java.day30;
 
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * PROJECT: interview
- * DESCRIPTION: note
+ * DESCRIPTION: 二叉树一层一层输出
  *
  * @author dell
  * @date 2019/3/28
  */
 public class Day23 {
-
-    private static LinkedList<Integer> nodes = new LinkedList<>();
 
     private static class Node {
         Node left, right;
@@ -25,24 +22,43 @@ public class Day23 {
     }
 
     static void levelOrder(Node root) {
-        if (root != null) {
-            nodes.add(root.data);
+        if (root == null) {
+            return;
         }
-        hello(root);
-        nodes.forEach(integer -> System.out.print(integer + " "));
+        Map<Integer, List<Integer>> listMap = new HashMap<>();
+        listMap.put(1, Collections.singletonList(root.data));
+
+        int deep = 2;
+        range(root, deep, listMap);
+
+        listMap.forEach((key, list) -> {
+            if (list != null) {
+                list.forEach(temp -> System.out.print(temp + " "));
+            }
+        });
     }
 
-    static void hello(Node root) {
-        if (root != null) {
-            nodes.add(root.data);
-            if (root.left != null) {
-                nodes.add(root.left.data);
+    static void range(Node root, int deep, Map<Integer, List<Integer>> listMap) {
+        List<Integer> list = listMap.get(deep);
+        if (root.left != null) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            if (root.right != null) {
-                nodes.add(root.right.data);
+            list.add(root.left.data);
+        }
+        if (root.right != null) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            hello(root.left);
-            hello(root.right);
+            list.add(root.right.data);
+        }
+        listMap.put(deep, list);
+
+        if (root.left != null) {
+            range(root.left, deep + 1, listMap);
+        }
+        if (root.right != null) {
+            range(root.right, deep + 1, listMap);
         }
     }
 
@@ -62,13 +78,13 @@ public class Day23 {
         }
     }
 
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
+    public static void main(String[] args) {
+        final int count = 9;
+        int[] arr = new int[]{20, 50, 35, 44, 9, 15, 62, 11, 13};
         Node root = null;
-        while (T-- > 0) {
-            int data = sc.nextInt();
-            root = insert(root, data);
+
+        for (int i : arr) {
+            root = insert(root, i);
         }
         levelOrder(root);
     }
