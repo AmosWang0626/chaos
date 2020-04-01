@@ -9,6 +9,13 @@ package cn.amos.frame.redis.config;
 public interface RedisLock {
 
     /**
+     * 初始化锁 (防止遗留锁未释放, 影响效果)
+     *
+     * @param key key
+     */
+    void init(String key);
+
+    /**
      * 获取锁
      *
      * @param key     key
@@ -23,8 +30,7 @@ public interface RedisLock {
      *
      * @param key   key
      * @param value value
-     * @return true 释放成功
      */
-    boolean unlock(String key, String value);
+    void unlock(String key, String value);
 
 }
