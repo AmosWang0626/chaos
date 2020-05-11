@@ -6,7 +6,7 @@ package com.amos.design.creation.singleton;
  * @author <a href="mailto:amos.wang@xiaoi.com">amos.wang</a>
  * @date 2/22/2020
  */
-public class LazySingleton {
+public class LazySingleton implements BaseSomeThing {
 
     private static LazySingleton lazySingleton;
 
@@ -23,6 +23,11 @@ public class LazySingleton {
             }
         }
         return lazySingleton;
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.println(this);
     }
 
 }
