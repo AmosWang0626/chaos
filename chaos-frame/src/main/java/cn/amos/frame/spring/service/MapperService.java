@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * DESCRIPTION: PrivateService
+ * DESCRIPTION: MapperService
  *
  * @author <a href="mailto:amos.wang@xiaoi.com">amos.wang</a>
  * @date 3/5/2020
@@ -20,7 +20,7 @@ public class MapperService {
     private UserMapper userMapper;
 
     public MapperService() {
-        AmosUtils.println("PrivateService init");
+        AmosUtils.println("MapperService init");
     }
 
     public void queryAll() {

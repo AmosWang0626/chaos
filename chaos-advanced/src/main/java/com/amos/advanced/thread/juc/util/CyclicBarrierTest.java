@@ -13,7 +13,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class CyclicBarrierTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    /**
+     * 发令枪起跑问题
+     */
+    public static void main(String[] args) {
         final int size = 8;
 
         CyclicBarrier cyclicBarrier = new CyclicBarrier(size);

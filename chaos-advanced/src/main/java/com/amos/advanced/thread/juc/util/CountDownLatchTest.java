@@ -18,6 +18,9 @@ public class CountDownLatchTest {
     private static List<String> planCompany = Arrays.asList("东方航空", "吉祥航空", "春秋航空");
     private static String[] target = {"上海", "重庆"};
 
+    /**
+     * 查询不同航空公司航班问题
+     */
     public static void main(String[] args) throws InterruptedException {
         List<String> info = new ArrayList<>();
 

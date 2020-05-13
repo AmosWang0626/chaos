@@ -20,8 +20,8 @@ public class MapperRegister implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
         BeanDefinitionBuilder builder;
-        /// 这句不行，为什么呢？PrivateService没有实例化 
-        // builder = BeanDefinitionBuilder.genericBeanDefinition(PrivateService.class);
+        /// 这句不行，为什么呢？MapperService没有实例化 
+        // builder = BeanDefinitionBuilder.genericBeanDefinition(MapperService.class);
         builder = BeanDefinitionBuilder.genericBeanDefinition(MapperFactoryBean.class);
         AbstractBeanDefinition beanDefinition = builder.getBeanDefinition();
         ConstructorArgumentValues argumentValues = beanDefinition.getConstructorArgumentValues();
