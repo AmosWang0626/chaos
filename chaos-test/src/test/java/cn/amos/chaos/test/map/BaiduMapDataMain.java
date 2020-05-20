@@ -1,8 +1,8 @@
-package cn.amos.common.baidu.map;
+package cn.amos.chaos.test.map;
 
-import cn.amos.common.baidu.map.pojo.BaseDataDTO;
-import cn.amos.common.baidu.map.pojo.DataListVO;
-import cn.amos.common.baidu.map.pojo.DataMapVO;
+import cn.amos.chaos.test.map.pojo.BaseDataDTO;
+import cn.amos.chaos.test.map.pojo.DataListVO;
+import cn.amos.chaos.test.map.pojo.DataMapVO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import org.springframework.core.io.ClassPathResource;

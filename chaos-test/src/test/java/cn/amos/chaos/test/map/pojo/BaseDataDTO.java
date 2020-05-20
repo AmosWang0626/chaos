@@ -1,4 +1,4 @@
-package cn.amos.common.baidu.map.pojo;
+package cn.amos.chaos.test.map.pojo;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
