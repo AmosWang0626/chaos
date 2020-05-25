@@ -24,6 +24,8 @@
 ### 简单代码
 ```
 // 创建线程工厂,并设置线程名字格式
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("thread-pool-%d").build();
 
 // if (corePoolSize > maximumPoolSize) throw IllegalArgumentException(非法调度Exception)
