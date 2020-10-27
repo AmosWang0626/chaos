@@ -7,14 +7,15 @@ package cn.amos.frame.dubbo;
  * @author Daoyuan
  * @date 2018/11/28
  */
-public interface DubboService {
+public interface HelloService {
 
     /**
      * say hello
      *
      * @param name name
+     * @param info info
      * @return response
      */
-    String sayHello(String name);
+    String sayHello(String name, String info);
 
 }
