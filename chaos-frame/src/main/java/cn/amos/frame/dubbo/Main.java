@@ -1,7 +1,12 @@
 package cn.amos.frame.dubbo;
 
+import cn.amos.frame.dubbo.model.GenderEnum;
+import cn.amos.frame.dubbo.model.UserForm;
+import cn.amos.frame.dubbo.model.UserInfoVO;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.util.Map;
 import java.util.ServiceLoader;
 import java.util.concurrent.ConcurrentHashMap;
@@ -49,11 +54,41 @@ public class Main {
         });
     }
 
+    /**
+     * 模拟方法调用: 接口 --> 方法 <返回值> 方法名(<参数类型: 参数>...)
+     */
     public static void main(String[] args0) {
-        // 模拟方法调用: 接口 --> <返回值> 方法(<参数类型: 参数>)
-
         // 接口
-        Class<HelloService> clazz = HelloService.class;
+        Class<?> clazz = HelloService.class;
+
+        loadService(clazz);
+
+        // sayHello
+        sayHello(clazz);
+
+        // register
+        register(clazz);
+    }
+
+    private static void register(Class<?> clazz) {
+        // 方法名
+        String methodName = "register";
+        // 参数类型
+        Class<?>[] parameterTypes = new Class[]{UserForm.class};
+        // 返回值类型
+        Class<?> responseType = UserInfoVO.class;
+        // 参数
+        Object[] params = new Object[]{new UserForm()
+                .setAccount("18937128861")
+                .setUsername("amos.wang")
+                .setGender(GenderEnum.MAN)
+                .setTotalConsume(new BigDecimal("1000000")
+        )};
+
+        callMethod(clazz, methodName, parameterTypes, responseType, params);
+    }
+
+    private static void sayHello(Class<?> clazz) {
         // 方法名
         String methodName = "sayHello";
         // 参数类型
@@ -63,13 +98,15 @@ public class Main {
         // 参数
         Object[] params = new Object[]{"amos.wang", "nice to meet you!"};
 
-        loadService(clazz);
+        callMethod(clazz, methodName, parameterTypes, responseType, params);
+    }
 
+    private static void callMethod(Class<?> clazz, String methodName, Class<?>[] paramTypes, Class<?> responseType, Object[] params) {
         try {
             String key = ALL_INTERFACE.get(clazz);
             Object instance = SINGLETON_MAP.get(key);
 
-            Method method = clazz.getMethod(methodName, parameterTypes);
+            Method method = clazz.getMethod(methodName, paramTypes);
             Object response = method.invoke(instance, params);
 
             System.out.println(responseType.cast(response));
