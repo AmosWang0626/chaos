@@ -20,31 +20,27 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Main {
 
     /**
-     * Map<BeanName, ServiceImpl#instance>
+     * Map<接口, 实现类>
+     * Map<Class<?>, ServiceImpl#instance>
      */
-    private static final Map<String, Object> SINGLETON_MAP = new ConcurrentHashMap<>(16);
-    /**
-     * Map<Service.class, BeanName>
-     */
-    private static final Map<Class<?>, String> ALL_INTERFACE = new ConcurrentHashMap<>(16);
+    private static final Map<Class<?>, Object> SINGLETON_MAP = new ConcurrentHashMap<>(16);
 
-    private static void loadService(Class<?> clazz) {
-        // java spi load interface implements class
+    private static void loadServiceImpl(Class<?> clazz) {
+        // 基于 Java API 根据接口加载实现类
         ServiceLoader<?> load = ServiceLoader.load(clazz);
 
         load.forEach(service -> {
-            // beanName首字母小写
-            String beanName = service.getClass().getSimpleName();
-            if (Character.isUpperCase(beanName.charAt(0))) {
-                beanName = Character.toLowerCase(beanName.charAt(0)) + beanName.substring(1);
-            }
+            /// beanName首字母小写
+            // String beanName = service.getClass().getSimpleName();
+            // if (Character.isUpperCase(beanName.charAt(0))) {
+            //     beanName = Character.toLowerCase(beanName.charAt(0)) + beanName.substring(1);
+            // }
 
-            if (SINGLETON_MAP.get(beanName) == null) {
+            if (SINGLETON_MAP.get(clazz) == null) {
                 synchronized (SINGLETON_MAP) {
-                    if (SINGLETON_MAP.get(beanName) == null) {
+                    if (SINGLETON_MAP.get(clazz) == null) {
                         try {
-                            ALL_INTERFACE.put(clazz, beanName);
-                            SINGLETON_MAP.put(beanName, service.getClass().newInstance());
+                            SINGLETON_MAP.put(clazz, service.getClass().newInstance());
                         } catch (InstantiationException | IllegalAccessException e) {
                             e.printStackTrace();
                         }
@@ -58,19 +54,18 @@ public class Main {
      * 模拟方法调用: 接口 --> 方法 <返回值> 方法名(<参数类型: 参数>...)
      */
     public static void main(String[] args0) {
-        // 接口
+        // 模拟初始化接口与实现类，基于JDK SPI
         Class<?> clazz = HelloService.class;
-
-        loadService(clazz);
+        loadServiceImpl(clazz);
 
         // sayHello
-        sayHello(clazz);
+        sayHello(clazz.getName());
 
         // register
-        register(clazz);
+        register(clazz.getName());
     }
 
-    private static void register(Class<?> clazz) {
+    private static void register(String className) {
         // 方法名
         String methodName = "register";
         // 参数类型
@@ -85,10 +80,18 @@ public class Main {
                 .setTotalConsume(new BigDecimal("1000000")
         )};
 
-        callMethod(clazz, methodName, parameterTypes, responseType, params);
+        CallRequest callRequest = new CallRequest()
+                .setClassName(className)
+                .setMethodName(methodName)
+                .setParameterTypes(parameterTypes)
+                .setParams(params)
+                .setResponseType(responseType);
+
+        Object response = callMethod(callRequest);
+        System.out.println(response);
     }
 
-    private static void sayHello(Class<?> clazz) {
+    private static void sayHello(String className) {
         // 方法名
         String methodName = "sayHello";
         // 参数类型
@@ -98,21 +101,32 @@ public class Main {
         // 参数
         Object[] params = new Object[]{"amos.wang", "nice to meet you!"};
 
-        callMethod(clazz, methodName, parameterTypes, responseType, params);
+        CallRequest callRequest = new CallRequest()
+                .setClassName(className)
+                .setMethodName(methodName)
+                .setParameterTypes(parameterTypes)
+                .setParams(params)
+                .setResponseType(responseType);
+
+        Object response = callMethod(callRequest);
+        System.out.println(response);
     }
 
-    private static void callMethod(Class<?> clazz, String methodName, Class<?>[] paramTypes, Class<?> responseType, Object[] params) {
+    private static Object callMethod(CallRequest callRequest) {
         try {
-            String key = ALL_INTERFACE.get(clazz);
-            Object instance = SINGLETON_MAP.get(key);
+            Class<?> clazz = Class.forName(callRequest.getClassName());
 
-            Method method = clazz.getMethod(methodName, paramTypes);
-            Object response = method.invoke(instance, params);
+            Object instance = SINGLETON_MAP.get(clazz);
 
-            System.out.println(responseType.cast(response));
-        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+            Method method = clazz.getMethod(callRequest.getMethodName(), callRequest.getParameterTypes());
+            Object response = method.invoke(instance, callRequest.getParams());
+
+            return callRequest.getResponseType().cast(response);
+        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
 }
