@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.volatle;
+package com.amos.advanced.concurrent.volatle;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 

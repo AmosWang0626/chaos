@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.aqs;
+package com.amos.advanced.concurrent.aqs;
 
 /**
  * DESCRIPTION: MyAqsLock 测试锁的可重入

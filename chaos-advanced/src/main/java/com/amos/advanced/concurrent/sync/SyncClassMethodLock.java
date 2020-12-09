@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.sync;
+package com.amos.advanced.concurrent.sync;
 
 /**
  * PROJECT: interview

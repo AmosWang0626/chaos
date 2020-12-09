@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.cas;
+package com.amos.advanced.concurrent.cas;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

@@ -1,4 +1,4 @@
-package com.amos.advanced.concurrent;
+package com.amos.advanced.concurrent.begin;
 
 /**
  * 模块名称: chaos

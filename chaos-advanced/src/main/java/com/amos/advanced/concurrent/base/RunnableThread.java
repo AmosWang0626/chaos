@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.base;
+package com.amos.advanced.concurrent.base;
 
 import java.util.function.Supplier;
 

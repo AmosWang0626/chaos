@@ -1,4 +1,4 @@
-package com.amos.advanced.concurrent;
+package com.amos.advanced.concurrent.begin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

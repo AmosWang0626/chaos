@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.juc.util;
+package com.amos.advanced.concurrent.juc.util;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;

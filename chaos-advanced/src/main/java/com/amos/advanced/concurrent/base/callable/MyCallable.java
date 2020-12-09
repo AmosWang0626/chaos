@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.base.callable;
+package com.amos.advanced.concurrent.base.callable;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 

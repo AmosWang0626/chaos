@@ -1,4 +1,4 @@
-package com.amos.advanced.thread.aqs;
+package com.amos.advanced.concurrent.aqs;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
