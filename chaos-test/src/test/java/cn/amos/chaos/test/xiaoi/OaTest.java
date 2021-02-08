@@ -1,5 +1,7 @@
 package cn.amos.chaos.test.xiaoi;
 
+import java.text.MessageFormat;
+
 /**
  * 模块名称: chaos
  * 模块描述: OA字数限制255，中文占3个字符
@@ -42,10 +44,12 @@ public class OaTest {
 
         int total = chinese * 3 + english;
         System.out.printf("\t中文字数：%d，英文字数：%d，总字符数：%d\t%s\n",
-                chinese, english, total, suggest == 0 ? "" : "（建议字数：）" + suggest);
+                chinese, english, total,
+                suggest == 0 ? "" : MessageFormat.format(
+                        "（建议总字数：{0}，建议中文字数：{1}）",
+                        suggest, (suggest - english) / 3));
 
         if (type == 1) {
-            
             if (total > 255) {
                 System.out.println("检验完成! 字数过多，请删减片段 !!!\n");
                 analysis(text);
