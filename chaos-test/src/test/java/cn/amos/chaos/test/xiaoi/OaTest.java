@@ -1,7 +1,5 @@
 package cn.amos.chaos.test.xiaoi;
 
-import java.text.MessageFormat;
-
 /**
  * 模块名称: chaos
  * 模块描述: OA字数限制255，中文占3个字符
@@ -17,58 +15,61 @@ public class OaTest {
             "4.有辅分类阅读权限,知识展示页面路径错误\n" +
             "5.有辅分类下载权限,知识展示页面不能下载";
 
-    private static final String CONTENT_NEW = "1.帮助中心-文件上传后不显示\n" +
-            "2.文章编辑-标问拼接规则无效\n" +
-            "3.文档展示页面相关文档数据不一致\n" +
-            "4.有辅分类阅读权限,知识展示页面路径错误\n" +
-            "5.有辅分类下载权限,知识展示页面不能下载";
-
     public static void main(String[] args) {
-        statistics(CONTENT_OLD, 1);
-        System.out.println("\n=================================================================\n");
-        statistics(CONTENT_NEW, 1);
+        statisticsContent(CONTENT_OLD);
     }
 
-    public static void statistics(String text, int type) {
-        statistics(text, type, 0);
-    }
-
-    public static void statistics(String text, int type, int suggest) {
-        if (type == 1) {
-            System.out.println("检验OA日志内容开始:");
-        }
+    /**
+     * 解析全文
+     */
+    public static void statisticsContent(String text) {
+        System.out.println("检验OA日志内容开始:");
 
         int txtLength = text.length();
         int chinese = chineseLength(text);
         int english = txtLength - chinese;
 
         int total = chinese * 3 + english;
-        System.out.printf("\t中文字数：%d，英文字数：%d，总字符数：%d\t%s\n",
-                chinese, english, total,
-                suggest == 0 ? "" : MessageFormat.format(
-                        "（建议总字数：{0}，建议中文字数：{1}）",
-                        suggest, (suggest - english) / 3));
+        System.out.printf("\t中文字数：%d，英文字数：%d，总字符数：%d\n", chinese, english, total);
 
-        if (type == 1) {
-            if (total > 255) {
-                System.out.println("检验完成! 字数过多，请删减片段 !!!\n");
-                analysis(text);
-            } else {
-                System.out.println("检验完成! Congratulations! 校验通过 !!!");
-            }
+        if (total > 255) {
+            System.out.println("检验完成! 字数过多，请删减片段 !!! 详细分析如下 ↓↓↓↓↓↓↓\n");
+            analysis(text);
+        } else {
+            System.out.println("检验完成! 校验通过! Congratulations!!!");
         }
     }
 
+    /**
+     * 分析每行
+     */
     public static void analysis(String text) {
         String[] split = text.split("\n");
         int suggest = 255 / split.length;
         for (String row : split) {
-            System.out.println("原始文本: " + row);
-            statistics(row, 0, suggest);
+            System.out.println(row);
+            statisticsRow(row, suggest);
         }
     }
 
-    public static int chineseLength(String text) {
+    /**
+     * 解析每行
+     */
+    public static void statisticsRow(String text, int suggest) {
+        int txtLength = text.length();
+        int chinese = chineseLength(text);
+        int english = txtLength - chinese;
+
+        int total = chinese * 3 + english;
+        if (total <= suggest) {
+            System.out.printf("\t中文字数：%d，英文字数：%d，总字符数：%d\n", chinese, english, total);
+        } else {
+            System.out.printf("\t中文字数：%d（建议：%d），英文字数：%d，总字符数：%d（建议：%d）\n",
+                    chinese, (suggest - english) / 3, english, total, suggest);
+        }
+    }
+
+    private static int chineseLength(String text) {
         String Reg = "^[\u4e00-\u9fa5]$";
         int result = 0;
         for (int i = 0; i < text.length(); i++) {
