@@ -1,9 +1,7 @@
 package cn.amos.chaos.test.service;
 
 import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
-import cn.amos.common.response.GeneralResponse;
-
-import java.util.List;
+import com.amos.common.dto.response.MultiResponse;
 
 /**
  * DESCRIPTION: DealerService
@@ -20,6 +18,6 @@ public interface DealerService {
      * @param tag  门店类型
      * @return list dealer
      */
-    GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag, String storeKeyword);
+    MultiResponse<DealerInfoVO> getDealers(String code, String tag, String storeKeyword);
 
 }

@@ -4,8 +4,8 @@ import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
 import cn.amos.chaos.test.pojo.dto.DealerMapper;
 import cn.amos.chaos.test.pojo.dto.DealerResponse;
 import cn.amos.chaos.test.service.DealerService;
-import cn.amos.common.response.GeneralResponse;
 import cn.amos.common.utils.base.RedisUtils;
+import com.amos.common.dto.response.MultiResponse;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,7 +36,7 @@ public class DealerServiceImpl implements DealerService {
 
 
     @Override
-    public GeneralResponse<List<DealerInfoVO>> getDealers(String code, String tag, String storeKeyword) {
+    public MultiResponse<DealerInfoVO> getDealers(String code, String tag, String storeKeyword) {
         DealerResponse allDealer = getAllDealer();
         if (allDealer.getIsSuccess()) {
             List<DealerInfoVO> collect = allDealer.getData().stream()
@@ -45,10 +45,10 @@ public class DealerServiceImpl implements DealerService {
                     .filter(dealerInfoDTO -> StringUtils.isBlank(storeKeyword) || dealerInfoDTO.getDealerName().contains(storeKeyword))
                     .map(DealerMapper.INSTANCE::convert)
                     .collect(Collectors.toList());
-            return new GeneralResponse<>(collect);
+            return MultiResponse.ofSuccess(collect);
         }
 
-        return GeneralResponse.SUCCESS;
+        return MultiResponse.ofSuccess();
     }
 
     /**

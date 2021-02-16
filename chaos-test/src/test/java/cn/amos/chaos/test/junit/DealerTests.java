@@ -4,8 +4,8 @@ import cn.amos.chaos.test.pojo.dto.DealerInfoDTO;
 import cn.amos.chaos.test.pojo.dto.DealerInfoVO;
 import cn.amos.chaos.test.pojo.dto.DealerResponse;
 import cn.amos.chaos.test.service.DealerService;
-import cn.amos.common.response.GeneralResponse;
 import cn.amos.common.utils.base.RedisUtils;
+import com.amos.common.dto.response.MultiResponse;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
@@ -53,9 +53,9 @@ class DealerTests {
     public void filterDealers() {
         String code = "1101";
         String tag = "服务站";
-        GeneralResponse<List<DealerInfoVO>> dealers = dealerService.getDealers(code, tag, "凯翔");
-        System.out.println("dealer size is " + dealers.getBody().size());
-        System.out.println("dealer body is " + dealers.getBody());
+        MultiResponse<DealerInfoVO> dealers = dealerService.getDealers(code, tag, "凯翔");
+        System.out.println("dealer size is " + dealers.getData().size());
+        System.out.println("dealer body is " + dealers.getData());
     }
 
 
