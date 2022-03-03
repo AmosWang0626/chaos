@@ -2,7 +2,10 @@ package com.amos.advanced.lambda;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -33,6 +36,14 @@ public class OptionalDemo {
 
         System.out.println(ol.orElse(null));
         System.out.println(ol2.orElse(null));
+
+        // filter
+        Hello fHello = Optional.ofNullable(hello).filter(obj -> Objects.nonNull(hello.getId())).orElse(null);
+        Hello fHello2 = Optional.ofNullable(hello2).filter(obj -> Objects.nonNull(hello.getId())).orElse(null);
+
+        System.out.println(fHello);
+        System.out.println(fHello2);
+
     }
 
     @Getter
@@ -41,6 +52,10 @@ public class OptionalDemo {
 
         private Long id;
 
+        @Override
+        public String toString() {
+            return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        }
     }
 
 }
