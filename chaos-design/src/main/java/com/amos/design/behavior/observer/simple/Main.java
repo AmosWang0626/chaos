@@ -1,8 +1,8 @@
-package com.amos.design.behavior.observer;
+package com.amos.design.behavior.observer.simple;
 
 /**
- * PROJECT: chaos-design
- * DESCRIPTION: 设计模式 —— 观察者
+ * 设计模式 —— 观察者
+ * 自己实现的观察者模式
  *
  * @author amos.wang
  */
@@ -14,7 +14,7 @@ public class Main {
         manage.addPerson(new Persons.Person2());
         manage.addPerson(new Persons.Person3());
 
-        manage.notifyMsg("嘘，老板来了。");        
+        manage.notifyMsg("嘘，老板来了。");
     }
 
 }

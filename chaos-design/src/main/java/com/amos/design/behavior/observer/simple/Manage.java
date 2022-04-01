@@ -1,4 +1,4 @@
-package com.amos.design.behavior.observer;
+package com.amos.design.behavior.observer.simple;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class Manage implements Notify {
 
     @Override
     public void notifyMsg(String msg) {
+        System.out.println("通知小伙伴们～");
         for (Notify person : persons) {
             person.notifyMsg(msg);
         }

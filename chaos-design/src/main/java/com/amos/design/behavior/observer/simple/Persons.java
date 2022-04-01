@@ -1,4 +1,4 @@
-package com.amos.design.behavior.observer;
+package com.amos.design.behavior.observer.simple;
 
 /**
  * DESCRIPTION: 多个用户
