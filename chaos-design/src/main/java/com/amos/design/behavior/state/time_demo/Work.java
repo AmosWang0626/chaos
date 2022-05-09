@@ -1,4 +1,4 @@
-package com.amos.design.behavior.state;
+package com.amos.design.behavior.state.time_demo;
 
 import lombok.Data;
 
