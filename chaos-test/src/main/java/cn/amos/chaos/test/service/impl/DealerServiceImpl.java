@@ -29,7 +29,6 @@ public class DealerServiceImpl implements DealerService {
     @Resource
     private RestTemplate restTemplate;
 
-    @Value("${beijing-hyundai.dealer.info.url}")
     private String dealerInfoUrl;
 
     private static final String DEALER_INFO = "DEALER_INFO";

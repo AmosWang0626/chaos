@@ -34,9 +34,9 @@ public class MyBatisConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://amos.wang:3306/mall");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/mall");
         dataSource.setUsername("root");
-        dataSource.setPassword("@Amos0626");
+        dataSource.setPassword("root");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         return dataSource;
     }

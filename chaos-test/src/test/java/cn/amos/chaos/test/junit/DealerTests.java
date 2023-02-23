@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 @SpringBootTest
 class DealerTests {
 
-    @Value("${beijing-hyundai.dealer.info.url}")
     private String dealerInfoUrl;
     @Resource
     private RestTemplate restTemplate;
@@ -64,7 +63,7 @@ class DealerTests {
      */
     public static void main(String[] args) {
         Gson gson = new Gson();
-        String json = "{\"DealerId\":\"1100000000\",\"DealerCode\":\"D0102\",\"DealerName\":\"北京鹏奥贸易有限公司\",\"ProvinceId\":\"110000\",\"CityId\":\"1101\",\"Lng\":\"116.239109\",\"Lat\":\"39.952913\",\"Address\":\"北京海淀区巨山路99-4号（合盛汽车园内）\",\"Tel\":\"010-88440307\",\"SalesTel\":\"010-88461126  \",\"DealerTag\":\"4s店\"}";
+        String json = "";
         DealerInfoDTO jsonToObj = gson.fromJson(json, DealerInfoDTO.class);
         List<DealerInfoDTO> list = new ArrayList<>();
         list.add(jsonToObj);
